@@ -11,10 +11,10 @@ goal=Utility.input();
 
 // console.log("Enter BetPrice :: ");
 // betPrice=Utility.input();
-
+var cash;
 for(let i=0;i<trials;i++){
     
-    var cash=stake;
+    cash=stake;
     while(cash>0&&cash<goal){
         bet++;
         if(Math.random<0.5){

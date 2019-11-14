@@ -5,7 +5,7 @@ module.exports = {
 
     input() {
 
-        let input = readline.question("Input ::");
+        let input = readline.question("");
         return input;
 
     },
@@ -23,14 +23,29 @@ module.exports = {
     //****************** LeapYear *********************/ 
 
     leapYear(year) {
+        try{
+            var format=/[^0-9]/;
+            if(format.test(year)||year.length!=4||year==undefined||year==null){
+                throw error;
+            }
 
-        if ((year % 4 == 0 && year != 100) || year % 400 == 0) {
+            else if( ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0) ){
             console.log(year + " Is Leap Year");
-        } else {
+            } else {
 
             console.log(year + " Not Leap Year");
 
         }
+    
+    }
+    catch(error){
+        console.log("not valid input");
+        console.log("enter year again");
+        var year=this.input()
+        this.leapYear(year) ;       
+        
+        
+    }
     },
 
 
@@ -40,8 +55,7 @@ module.exports = {
         var har = 0;
         for (var i = 1; i <= n; i++) {
             har = har + 1.0 / i;
-            //console.log(har);
-
+            
         }
         console.log("Harmonic Number of " + n + " Is :: " + har);
 
@@ -112,53 +126,13 @@ module.exports = {
     },
 
 
-    // print1DArray(array){
-
-    //     for(var i=0;i<size;i++){
-
-    //     }
-    //     //return arr;
-
-    //    console.log(arr); 
-    // },
-    sum(array) {
-
-        var sum = 0;
-        var arr_size = array.length;
-        {
-           if (arr_size != 0) {
-              var l, r;
-  
-              // Fix the first element as A[i]
-              for (var i = 0; i < arr_size - 2; i++) {
-  
-                 // Fix the second element as A[j]
-                 for (var j = i + 1; j < arr_size - 1; j++) {
-  
-                    // Now look for the third number
-                    for (var k = j + 1; k < arr_size; k++) {
-                       if (array[i] + array[j] + array[k] == sum) {
-                          console.log("Triplet is " + array[i] + ", " + array[j] + ", " + array[k]);
-  
-                       }
-                    }
-                 }
-              }
-           }
-  
-           else {
-  
-              console.log("invalid ");
-           }
-        }
-     },
+    
+    /****************** Triplates*************************/
   
     findDistinctTriplate(arr) {
         var n=arr.length;
         const sum=0;
         let c=0;
-        // console.log('arrr',arr);
-        // console.log("nn",n);
 
         for (let i = 0; i < n; i++) {
             for (let j = i + 1; j < n; j++) {
@@ -166,23 +140,17 @@ module.exports = {
 
                     if (arr[i] + arr[j] + arr[k] == sum) {
                         c=c+1;
-                        console.log("Triplet is :: " + arr[i] + ", " + arr[j] + ", " + arr[k]);
+                        console.log("Triplet is :: " + arr[i] + " +" + arr[j] + " +" + arr[k]+" =0");
 
                     }
-                   
-
-
                 }
               
             }
         }
-        
-        return c;
-        
-        
+        return c;   
     },
 
-/**************** Coupon Number************************* */
+    /**************** Coupon Number************************* */
         generateDistinctCoupon(n){
 
             let count = 0;
@@ -201,7 +169,98 @@ module.exports = {
             console.log("Distint Coupon Numbers are :: " + arr);
 
             return count;
+        },
+
+        /************************** TwoDArray ***************************************/
+
+        print2DArray(row, column) {
+            var arr = [];
+            for (var i = 0; i < row; i++) {
+               arr[i] = [];
+         
+               for (var j = 0; j < column; j++) {
+                console.log("Enter Element :: ");
+                
+                  var element = this.input()
+                  arr[i][j]= element+"";
+         
+               }
+         
+            }
+            console.log(arr);
+         },
+/*********************************************************************************************** */
+//                            Algorithm Programs                                                 //
+/*********************************************************************************************** */
+   /**************** Anagram Detection **************************/     
+    checkAnagrams(word1,word2){
+        var str1=this.reduceCodeForAnagram(word1);
+        var str2=this.reduceCodeForAnagram(word2);
+        return (str1===str2)
+       
+    },
+
+    reduceCodeForAnagram(word){
+        return word.toLowerCase().split('').sort().join('');
+
+    },
+  /************************** Prime Number in a range 0 - 1000 */
+
+  primeNumberInARange(){
+     var arr=[];
+    const sum=0
+   // for(let k=0;k<1000;k++){
+
+    for(let i=0;i<=1000;i++){
+       
+        var flag=0;
+        for(let j=2;j<i;j++){
+            
+            if(i%j==sum){
+                flag=0
+                break 
+            }else{
+                flag=1;
+            } 
         }
+        if(flag==1){
+            arr.push(i);
+            //console.log(i+' ');
+        }
+        
+ }
+
+//  return arr
+//console.log("Prime Numbers :: "+arr);
+return arr
+
+},
+    /********************************************************************************* */
+
+    //******************** Buble Sort For Interger ***************************** */
+
+    bubbleSortInt(intArr){
+        const n=intArr.length
+
+        for(let i=0;i<n-1;i++){
+            for(let j=0;j<n-i-1;j++){
+                if(intArr[j]>intArr[j+1]){
+                    let temp=intArr[j];
+                    intArr[j]=intArr[j+1]
+                    intArr[j+1]=temp
+                }
+
+            }
+        }
+        console.log(intArr)
+        //return intArr
+    },
+
+    insertionSortInt(intArr){
 
 
-    }//module.export;
+    }
+
+
+
+}//module.export;

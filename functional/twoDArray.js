@@ -1,23 +1,13 @@
 
-//var Utility = require('../utility/utility');
-var read = require('readline-sync');
-//taking the input from user
-var row = read.question('enter size of row ');
-var column = read.question('enter size of column ');
-array(row, column)
+const Utility = require('../utility/utility');
 
-function array(row, column) {
-    var arr = [];
-    for (var i = 0; i < row; i++) {
-       arr[i] = [];
+console.log("Enter Number Of Rows :: ");
 
-       for (var j = 0; j < column; j++) {
+var rows = Utility.input()
+console.log("Enter Number Of Columns :: ");
+var columns = Utility.input()
+Utility.print2DArray(rows,columns);
 
-          var element = read.question("Enter the value :")
-          arr[i][j]= element+"";
 
-       }
 
-    }
-    console.log(arr);
- }
+ 
