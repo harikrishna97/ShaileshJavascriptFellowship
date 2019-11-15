@@ -2,40 +2,40 @@ const Utility=require('../utility/utility');
 console.log("Prime Numbers in a range of 0 - 1000 are :: ");
 var arr=[]
 
-arr=Utility.primeNumberInARange();
+Utility.primeNumberInARange();
 
-var n=arr.length;
-//Extending Program to check for anagrams and palindrome
-//for(let i=0;i<n;i++){
-    isPalindrome(arr)
+// var n=arr.length;
+// //Extending Program to check for anagrams and palindrome
+// //for(let i=0;i<n;i++){
+//     isPalindrome(arr)
 
-//}
+// //}
 
-function isPalindrome(num){
-var arr=[]
-arr=num;
-const n=arr.length
-    for(let i=0;i<n;i++){
+// function isPalindrome(num){
+// var arr=[]
+// arr=num;
+// const n=arr.length
+//     for(let i=0;i<n;i++){
     
-        var rem,sum=0,temp;
+//         var rem,sum=0,temp;
     
-        temp=arr[i];
+//         temp=arr[i];
     
-        while(arr[i]>0){
-            rem=arr[i]%10;
-            sum=sum*10+rem;
-            num=parseInt(arr[i]/10);
-        }
+//         while(arr[i]>0){
+//             rem=arr[i]%10;
+//             sum=sum*10+rem;
+//             num=parseInt(arr[i]/10);
+//         }
     
-        if(temp==arr[i]){
-            console.log(arr[i]+" is Palindrome");
-        }
+//         if(temp==arr[i]){
+//             console.log(arr[i]+" is Palindrome");
+//         }
         
         
-    }
+//     }
 
 
-}
+// }
 
 
 

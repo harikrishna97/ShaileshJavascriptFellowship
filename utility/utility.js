@@ -2,13 +2,26 @@
 var readline = require('readline-sync');
 
 module.exports = {
-
+    /**************** Input From User *************** */
     input() {
 
         let input = readline.question("");
         return input;
 
     },
+
+    // /**************  input String Array From User ************ */
+    // inputStringArray(arrSize){
+
+    //     console.log("Enter "+arrSize+" Elements");
+
+    //     for(let i=0;i<arrSize;i++){
+
+    //         console.log("Enter "+i+" Element ::");
+    //         intArr[i]=this.input()
+    //     }
+    //     return intArr
+    // },
 
     //******************* String Replace*************/
     
@@ -212,7 +225,9 @@ module.exports = {
    // for(let k=0;k<1000;k++){
 
     for(let i=0;i<=1000;i++){
-       
+        if(i==2){
+            arr.push(i);
+        }
         var flag=0;
         for(let j=2;j<i;j++){
             
@@ -231,8 +246,8 @@ module.exports = {
  }
 
 //  return arr
-//console.log("Prime Numbers :: "+arr);
-return arr
+console.log("Prime Numbers :: "+arr);
+//return arr
 
 },
     /********************************************************************************* */
@@ -255,12 +270,126 @@ return arr
         console.log(intArr)
         //return intArr
     },
+    //******************** Insertion Sort For Interger ***************************** */
 
     insertionSortInt(intArr){
+        var temp;
+		
+		var n=intArr.length;
+		for(let i=1;i<n;i++) {
+			
+			temp=intArr[i];
+			var j=i;
+			while(j>0 && intArr[j]<intArr[j-1]) {
+				intArr[j]=intArr[j-1];
+				j--;
+				intArr[j]=temp;
+            }	
+            		
+		}
+			console.log(intArr);
+    },
 
-
+    //************************* Vanding Machine **********************/
+    calculateMinNotes(amount){
+        var minNote
+   
+        if(amount ==0){
+            return
+        }
+        //calculate 1000 rupees notes
+        if(amount>=1000){
+            minNote=minNote+parseInt(amount/1000)
+            console.log("1000 Rupees Notes Are :: "+parseInt(amount/1000));
+            
+            if(amount/1000==0){
+                return
+            }else{
+                this.calculateMinNotes(amount%1000)
+            }
+        }
+        //calculate 500 rupees notes
+        else if(amount>=500){
+            minNote=minNote+parseInt(amount/500)
+            console.log("500 Rupees Notes Are :: "+parseInt(amount/500));
+            
+            if(amount/500==0){
+                return
+            }else{
+                this.calculateMinNotes(amount%500)
+            }
+        }
+        //calculate 100 rupees notes
+        else if(amount>=100){
+            minNote=minNote+parseInt(amount/100)
+            console.log("100 Rupees Notes Are :: "+parseInt(amount/100));
+            
+            if(amount/100==0){
+                return
+            }else{
+                this.calculateMinNotes(amount%100)
+            }
+        }
+        //calculate 50 rupees notes
+        else if(amount>=50){
+            minNote=minNote+parseInt(amount/50)
+            console.log("50 Rupees Notes Are :: "+parseInt(amount/50));
+            
+            if(amount/50==0){
+                return
+            }else{
+                this.calculateMinNotes(amount%50)
+            }
+        }
+        //calculate 10 rupees notes
+        else if(amount>=10){
+            minNote=minNote+parseInt(amount/10)
+            console.log("10 Rupees Notes Are :: "+parseInt(amount/10));
+            
+            if(amount/10==0){
+                return
+            }else{
+                this.calculateMinNotes(amount%10)
+            }
+        }
+        //calculate 5 rupees notes
+        else if(amount>=5){
+            minNote=minNote+parseInt(amount/5)
+            console.log("5 Rupees Notes Are :: "+parseInt(amount/5));
+            
+            if(amount/5==0){
+                return
+            }else{
+                this.calculateMinNotes(amount%5)
+            }
+        }
+        //calculate 2 rupees notes
+        else if(amount>=2){
+            minNote=minNote+parseInt(amount/2)
+            console.log("2 Rupees Notes Are :: "+parseInt(amount/2));
+            
+            if(amount/2==0){
+                return
+            }else{
+                this.calculateMinNotes(amount%2)
+            }
+        }
+        //calculate 1 rupees notes
+        else if(amount>=1){
+            minNote=minNote+parseInt(amount/1)
+            console.log("1 Rupees Notes Are :: "+parseInt(amount/1));
+            
+            if(amount/1==0){
+                return
+            }else{
+                this.calculateMinNotes(amount%1)
+            }
+        }
+        
+       return minNote
+    
     }
 
-
+    
 
 }//module.export;
