@@ -10,7 +10,7 @@ arrSize=Utility.input()
 
 console.log("Enter "+arrSize+" Elements");
 
-for(let i=0;i<arrSize;i++){
+for(let i=0;i<arrSize;i++){ 
     console.log("Enter "+i+" Element ::");
     intArr[i]=Utility.input()
 }

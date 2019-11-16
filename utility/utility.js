@@ -24,54 +24,87 @@ module.exports = {
     // },
 
     //******************* String Replace*************/
-    
+
     stringReplacer(name) {
-        var TEMPLATE = "Hi UserName, How are You?";
 
-        console.log(TEMPLATE.replace("UserName", name));
+        try {
+            let format = /[^a-zA-Z]/;
+            if (format.test(name)){
+                throw 'invalid name';
+            }else if(name.length<3){
+                throw 'short length';
+            }else {
+            var TEMPLATE = "Hi UserName, How are You?";
 
+            console.log(TEMPLATE.replace("UserName", name));
+            throw true
+            }
+        } catch (error) {
+            //console.log("invalid Input");
+            return error;
+
+
+        }
     },
 
 
     //****************** LeapYear *********************/ 
 
     leapYear(year) {
-        try{
-            var format=/[^0-9]/;
-            if(format.test(year)||year.length!=4||year==undefined||year==null){
-                throw error;
-            }
+        try {
+            let format = /[^0-9]/;
+            if ( format.test(year) || year.length < 4 ||  year.length > 4 ) {
+                throw 'is invalids';
+                
+            }else if(year !=null){
 
-            else if( ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0) ){
-            console.log(year + " Is Leap Year");
+         if (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)) {
+                    //console.log(year + " Is Leap Year");
+                return true
             } else {
 
-            console.log(year + " Not Leap Year");
+                  //console.log(year + " Not Leap Year");
+                return false
+
+
+            }
+        }
+        }
+        catch (error) {
+            // console.log("not valid input");
+            //  console.log("enter year again");
+            // var year=this.input()
+            //  this.leapYear(year) ; 
+            console.log(" invalid");
+                  
+            return error
 
         }
-    
-    }
-    catch(error){
-        console.log("not valid input");
-        console.log("enter year again");
-        var year=this.input()
-        this.leapYear(year) ;       
-        
-        
-    }
     },
 
 
     //****************** Harmonic Number ****************/
 
     harmonic(n) {
-        var har = 0;
-        for (var i = 1; i <= n; i++) {
-            har = har + 1.0 / i;
-            
-        }
-        console.log("Harmonic Number of " + n + " Is :: " + har);
 
+        try{
+            let format=/[^1-9]/
+          if(format.test(n)|| n==null ||n==undefined){
+              throw 'invalid Input'
+          }else{
+            var har = 0;
+            for (var i = 1; i <= n; i++) {
+                har = har + 1.0 / i;
+
+            }
+            console.log("Harmonic Number of " + n + " Is :: " + har);
+        } 
+    }catch(error){
+        console.log('invalid input');
+        
+        return error;
+
+        }
     },
 
     //******************* Flip Coin **************** */ 
@@ -139,130 +172,161 @@ module.exports = {
     },
 
 
-    
+
     /****************** Triplates*************************/
-  
+
     findDistinctTriplate(arr) {
-        var n=arr.length;
-        const sum=0;
-        let c=0;
+        var n = arr.length;
+        const sum = 0;
+        let c = 0;
 
         for (let i = 0; i < n; i++) {
             for (let j = i + 1; j < n; j++) {
                 for (let k = j + 1; k < n; k++) {
 
                     if (arr[i] + arr[j] + arr[k] == sum) {
-                        c=c+1;
-                        console.log("Triplet is :: " + arr[i] + " +" + arr[j] + " +" + arr[k]+" =0");
+                        c = c + 1;
+                        console.log("Triplet is :: " + arr[i] + " +" + arr[j] + " +" + arr[k] + " =0");
 
                     }
                 }
-              
+
             }
         }
-        return c;   
+        return c;
     },
 
     /**************** Coupon Number************************* */
-        generateDistinctCoupon(n){
+    generateDistinctCoupon(n) {
 
-            let count = 0;
-            const arr = [];
-            while (arr.length != n) {
+        let count = 0;
+        const arr = [];
+        while (arr.length != n) {
 
-                var randNum = Math.floor(Math.random() * 100);
-                if (arr.includes(randNum)) {
-                    count++;
-                } else {
-                    count++;
-                    arr.push(randNum);
-                }
+            var randNum = Math.floor(Math.random() * 100);
+            if (arr.includes(randNum)) {
+                count++;
+            } else {
+                count++;
+                arr.push(randNum);
+            }
+
+        }
+        console.log("Distint Coupon Numbers are :: " + arr);
+
+        return count;
+    },
+
+    /************************** TwoDArray ***************************************/
+
+    print2DArray(row, column) {
+        var arr = [];
+        for (var i = 0; i < row; i++) {
+            arr[i] = [];
+
+            for (var j = 0; j < column; j++) {
+                console.log("Enter Element :: ");
+
+                var element = this.input()
+                arr[i][j] = element + "";
 
             }
-            console.log("Distint Coupon Numbers are :: " + arr);
 
-            return count;
+        }
+        console.log(arr);
+    },
+    /*********************************************************************************************** */
+    //                            Algorithm Programs                                                 //
+    /*********************************************************************************************** */
+    /**************** Anagram Detection **************************/
+    // checkAnagrams(word1, word2) {
+    //     var str1 = this.reduceCodeForAnagram(word1);
+    //     var str2 = this.reduceCodeForAnagram(word2);
+    //     return (str1 === str2)
+
+    // },
+
+    // reduceCodeForAnagram(word) {
+    //     return word.toLowerCase().split('').sort().join('');
+
+    // },
+
+    checkAnagrams(word1, word2) {
+        var format = /[a-zA-Z]/;
+        
+        var count = 0;
+        if (format.test(word1) && format.test(word2)) {
+            if (word1.length !== word2.length) {
+                console.log("strings are not anagram");
+            }
+            else {
+                for (var i = 0; i < word1.length; i++) {
+                    for (var t = 0; t < word2.length; t++) {
+                        if (word2[t].toLowerCase() == word1[i].toLowerCase()) {
+                        count++;
+                        break;
+                         }
+                    }
+                }
+                if (count == word1.length) {
+                    return true
+                }
+                else {
+                    return false
+                }
+            }
+        }
+        else {
+        console.log("invalid input");
+        }
         },
 
-        /************************** TwoDArray ***************************************/
+    /************************** Prime Number in a range 0 - 1000 */
 
-        print2DArray(row, column) {
-            var arr = [];
-            for (var i = 0; i < row; i++) {
-               arr[i] = [];
-         
-               for (var j = 0; j < column; j++) {
-                console.log("Enter Element :: ");
-                
-                  var element = this.input()
-                  arr[i][j]= element+"";
-         
-               }
-         
+    primeNumberInARange() {
+        var arr = [];
+        const sum = 0
+        // for(let k=0;k<1000;k++){
+
+        for (let i = 0; i <= 1000; i++) {
+            if (i == 2) {
+                arr.push(i);
             }
-            console.log(arr);
-         },
-/*********************************************************************************************** */
-//                            Algorithm Programs                                                 //
-/*********************************************************************************************** */
-   /**************** Anagram Detection **************************/     
-    checkAnagrams(word1,word2){
-        var str1=this.reduceCodeForAnagram(word1);
-        var str2=this.reduceCodeForAnagram(word2);
-        return (str1===str2)
-       
+            var flag = 0;
+            for (let j = 2; j < i; j++) {
+
+                if (i % j == sum) {
+                    flag = 0
+                    break
+                } else {
+                    flag = 1;
+                }
+            }
+            if (flag == 1) {
+                arr.push(i);
+                //console.log(i+' ');
+            }
+
+        }
+
+        //  return arr
+        console.log("Prime Numbers :: " + arr);
+        //return arr
+
     },
-
-    reduceCodeForAnagram(word){
-        return word.toLowerCase().split('').sort().join('');
-
-    },
-  /************************** Prime Number in a range 0 - 1000 */
-
-  primeNumberInARange(){
-     var arr=[];
-    const sum=0
-   // for(let k=0;k<1000;k++){
-
-    for(let i=0;i<=1000;i++){
-        if(i==2){
-            arr.push(i);
-        }
-        var flag=0;
-        for(let j=2;j<i;j++){
-            
-            if(i%j==sum){
-                flag=0
-                break 
-            }else{
-                flag=1;
-            } 
-        }
-        if(flag==1){
-            arr.push(i);
-            //console.log(i+' ');
-        }
-        
- }
-
-//  return arr
-console.log("Prime Numbers :: "+arr);
-//return arr
-
-},
     /********************************************************************************* */
 
     //******************** Buble Sort For Interger ***************************** */
 
-    bubbleSortInt(intArr){
-        const n=intArr.length
+    bubbleSortInt(intArr) {
+        const n = intArr.length
 
-        for(let i=0;i<n-1;i++){
-            for(let j=0;j<n-i-1;j++){
-                if(intArr[j]>intArr[j+1]){
-                    let temp=intArr[j];
-                    intArr[j]=intArr[j+1]
-                    intArr[j+1]=temp
+        for (let i = 0; i < n - 1; i++) {
+            for (let j = 0; j < n - i - 1; j++) {
+                if (intArr[j] > intArr[j + 1]) {
+                    let temp = intArr[j];
+                    intArr[j] = intArr[j + 1]
+                    intArr[j + 1] = temp
                 }
 
             }
@@ -272,124 +336,151 @@ console.log("Prime Numbers :: "+arr);
     },
     //******************** Insertion Sort For Interger ***************************** */
 
-    insertionSortInt(intArr){
+    insertionSortInt(intArr) {
         var temp;
-		
-		var n=intArr.length;
-		for(let i=1;i<n;i++) {
-			
-			temp=intArr[i];
-			var j=i;
-			while(j>0 && intArr[j]<intArr[j-1]) {
-				intArr[j]=intArr[j-1];
-				j--;
-				intArr[j]=temp;
-            }	
-            		
-		}
-			console.log(intArr);
+
+        var n = intArr.length;
+        for (let i = 1; i < n; i++) {
+
+            temp = intArr[i];
+            var j = i;
+            while (j > 0 && intArr[j] < intArr[j - 1]) {
+                intArr[j] = intArr[j - 1];
+                j--;
+                intArr[j] = temp;
+            }
+
+        }
+        console.log(intArr);
     },
 
+    /************************ Binary Search For Integer Value************ */
+     binarySearchForInt(intArr,key){
+        var first=0;
+        var last=intArr.length-1
+        var mid;
+        while(first<=last){
+            mid=Math.floor(first+last)/2
+
+            if(intArr[mid]==key){
+            console.log("Element "+key+" is found at location :: "+(mid+1));
+            break
+             }
+            else if(key>intArr[mid]){
+                fisrt=mid+1
+            }
+           
+            else{
+                last=mid-1
+            }
+        }
+        if(first>last){
+            console.log("Element "+key+" is not found");
+            
+        }
+    
+    
+    },
     //************************* Vanding Machine **********************/
-    calculateMinNotes(amount){
+    calculateMinNotes(amount) {
         var minNote
-   
-        if(amount ==0){
+
+        if (amount == 0) {
             return
         }
         //calculate 1000 rupees notes
-        if(amount>=1000){
-            minNote=minNote+parseInt(amount/1000)
-            console.log("1000 Rupees Notes Are :: "+parseInt(amount/1000));
-            
-            if(amount/1000==0){
+        if (amount >= 1000) {
+            minNote = minNote + parseInt(amount / 1000)
+            console.log("1000 Rupees Notes Are :: " + parseInt(amount / 1000));
+
+            if (amount / 1000 == 0) {
                 return
-            }else{
-                this.calculateMinNotes(amount%1000)
+            } else {
+                this.calculateMinNotes(amount % 1000)
             }
         }
         //calculate 500 rupees notes
-        else if(amount>=500){
-            minNote=minNote+parseInt(amount/500)
-            console.log("500 Rupees Notes Are :: "+parseInt(amount/500));
-            
-            if(amount/500==0){
+        else if (amount >= 500) {
+            minNote = minNote + parseInt(amount / 500)
+            console.log("500 Rupees Notes Are :: " + parseInt(amount / 500));
+
+            if (amount / 500 == 0) {
                 return
-            }else{
-                this.calculateMinNotes(amount%500)
+            } else {
+                this.calculateMinNotes(amount % 500)
             }
         }
         //calculate 100 rupees notes
-        else if(amount>=100){
-            minNote=minNote+parseInt(amount/100)
-            console.log("100 Rupees Notes Are :: "+parseInt(amount/100));
-            
-            if(amount/100==0){
+        else if (amount >= 100) {
+            minNote = minNote + parseInt(amount / 100)
+            console.log("100 Rupees Notes Are :: " + parseInt(amount / 100));
+
+            if (amount / 100 == 0) {
                 return
-            }else{
-                this.calculateMinNotes(amount%100)
+            } else {
+                this.calculateMinNotes(amount % 100)
             }
         }
         //calculate 50 rupees notes
-        else if(amount>=50){
-            minNote=minNote+parseInt(amount/50)
-            console.log("50 Rupees Notes Are :: "+parseInt(amount/50));
-            
-            if(amount/50==0){
+        else if (amount >= 50) {
+            minNote = minNote + parseInt(amount / 50)
+            console.log("50 Rupees Notes Are :: " + parseInt(amount / 50));
+
+            if (amount / 50 == 0) {
                 return
-            }else{
-                this.calculateMinNotes(amount%50)
+            } else {
+                this.calculateMinNotes(amount % 50)
             }
         }
         //calculate 10 rupees notes
-        else if(amount>=10){
-            minNote=minNote+parseInt(amount/10)
-            console.log("10 Rupees Notes Are :: "+parseInt(amount/10));
-            
-            if(amount/10==0){
+        else if (amount >= 10) {
+            minNote = minNote + parseInt(amount / 10)
+            console.log("10 Rupees Notes Are :: " + parseInt(amount / 10));
+
+            if (amount / 10 == 0) {
                 return
-            }else{
-                this.calculateMinNotes(amount%10)
+            } else {
+                this.calculateMinNotes(amount % 10)
             }
         }
         //calculate 5 rupees notes
-        else if(amount>=5){
-            minNote=minNote+parseInt(amount/5)
-            console.log("5 Rupees Notes Are :: "+parseInt(amount/5));
-            
-            if(amount/5==0){
+        else if (amount >= 5) {
+            minNote = minNote + parseInt(amount / 5)
+            console.log("5 Rupees Notes Are :: " + parseInt(amount / 5));
+
+            if (amount / 5 == 0) {
                 return
-            }else{
-                this.calculateMinNotes(amount%5)
+            } else {
+                this.calculateMinNotes(amount % 5)
             }
         }
         //calculate 2 rupees notes
-        else if(amount>=2){
-            minNote=minNote+parseInt(amount/2)
-            console.log("2 Rupees Notes Are :: "+parseInt(amount/2));
-            
-            if(amount/2==0){
+        else if (amount >= 2) {
+            minNote = minNote + parseInt(amount / 2)
+            console.log("2 Rupees Notes Are :: " + parseInt(amount / 2));
+
+            if (amount / 2 == 0) {
                 return
-            }else{
-                this.calculateMinNotes(amount%2)
+            } else {
+                this.calculateMinNotes(amount % 2)
             }
         }
         //calculate 1 rupees notes
-        else if(amount>=1){
-            minNote=minNote+parseInt(amount/1)
-            console.log("1 Rupees Notes Are :: "+parseInt(amount/1));
-            
-            if(amount/1==0){
+        else if (amount >= 1) {
+            minNote = minNote + parseInt(amount / 1)
+            console.log("1 Rupees Notes Are :: " + parseInt(amount / 1));
+
+            if (amount / 1 == 0) {
                 return
-            }else{
-                this.calculateMinNotes(amount%1)
+            } else {
+                this.calculateMinNotes(amount % 1)
             }
         }
-        
-       return minNote
-    
+
+        return minNote;
+
     }
 
-    
+
 
 }//module.export;

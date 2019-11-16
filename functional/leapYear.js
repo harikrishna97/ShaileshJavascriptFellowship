@@ -1,17 +1,14 @@
 
-   const Utility=require('../utility/utility');
-
- 
- 
+   const Utility=require('../utility/utility'); 
  //do{
     console.log(" enter year ::");
     
     var year=Utility.input();
  //}while(checkLength(year));
 
- Utility.leapYear(year);
- 
- 
+//   var result= Utility.leapYear(year);
+   console.log(Utility.leapYear(year)? 'Year '+year+' Is leap Year' : 'Year '+year+' Is Not leap Year' );
+   
  // checking  year is 4 digit number or not
 //  function checkLength(year)
 //  {
@@ -23,3 +20,4 @@
 //         return false;
 //     }
 //  }
+

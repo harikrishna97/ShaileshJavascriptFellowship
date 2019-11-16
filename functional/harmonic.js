@@ -1,6 +1,7 @@
 const Utility=require('../utility/utility');
 
 do{
+    
 var n=Utility.input();
 }while(checkN(n));
 
