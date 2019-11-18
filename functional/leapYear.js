@@ -1,5 +1,15 @@
-
-   const Utility=require('../utility/utility'); 
+/*****************************************************************************
+ *Execution         :   1. default node         cmd> node leapYear.js 
+ * Purpose: Print the year is a Leap Year or not.
+ * @file                 : LeapYear.js
+ * @overview       : check year is leap year or not
+ * @author  SHAILESH
+ * @version node v8.10.0    npm 3.5.2
+ * @since   
+ *****************************************************************************/
+  
+  
+  const Utility=require('../utility/utility'); 
  //do{
     console.log(" enter year ::");
     

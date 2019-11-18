@@ -1,3 +1,12 @@
+/*****************************************************************************
+ *Execution         :   1. default node         cmd> node bubbleSortString.js 
+ * Purpose: Sort the Given string  Array Using BubbleSort.
+ * @file                 : bubbleSortString.js
+ * @overview       : Sorting string Array Using Bubble Sort
+ * @author  SHAILESH
+ * @version node v8.10.0    npm 3.5.2
+ * @since  date 
+ *****************************************************************************/
 const Utility=require('../utility/utility')
 
 
