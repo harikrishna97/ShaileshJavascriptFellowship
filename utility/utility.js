@@ -10,6 +10,23 @@ module.exports = {
 
     },
 
+    validatingNumber(number){
+        const format=/[^0-9]/;
+        if(format.test(number)||number==null||number==undefined){
+            throw 'invalid input';
+        }
+
+    },
+
+    validatingString(string){
+        const format=/[^a-zA-Z]/;
+        if(format.test(string)||string==null||string==undefined){
+            throw 'invalid input';
+        }
+
+    },
+
+
     // /**************  input String Array From User ************ */
     // inputStringArray(arrSize){
 
@@ -55,7 +72,7 @@ module.exports = {
             let format = /[^0-9]/;
             if ( format.test(year) || (year < 1000) ||  (year > 9999) ) {
                 throw 'is invalids';
-                return false
+
             }
             
             if(year !=null){
@@ -72,7 +89,11 @@ module.exports = {
         }catch (error) {
             console.log("not valid input");
               console.log("enter year again");
-             let year=parseInt(this.input())
+            //   var anotherinput=question("enter year again")
+             var year=parseInt(this.input())
+             var currentYear=year;
+             console.log("YEAR",year);
+             
               this.leapYear(year) ; 
               
             
@@ -80,6 +101,7 @@ module.exports = {
             return error
 
         }
+        return currentYear
     },
 
 
@@ -111,7 +133,7 @@ module.exports = {
         try{
             let format=/[^0-9]/
             var tail = 0, head = 0;
-            if(format.test(number)||number===null||number===undefined){
+            if(format.test(number)||number==null||number==undefined){
                 throw 'invalid input'
             }else{
                 
@@ -301,6 +323,11 @@ module.exports = {
 
     /****************** Gambling Game *************************/
     gambler(stake, goal, trials) {
+        try{
+            this.validatingNumber(stake)
+            this.validatingNumber(stake)
+            this.validatingNumber(stake)
+
         
             var  win = 0;
         
@@ -325,7 +352,11 @@ module.exports = {
             console.log("You Win "+win+" Times Outof "+trials+" trials");
             console.log("Percentage of game won :: " +winPercent );
             console.log("Percentage of game Loss :: " +lossPercent );
+        }catch(error){
+            console.log('invalid input');
             
+            return error
+        }   
         },
     /*********************************************************************************************** */
     //                            Algorithm Programs                                                 //
@@ -600,6 +631,7 @@ module.exports = {
 
     //************************* Vanding Machine **********************/
     calculateMinNotes(amount) {
+        
         var minNote=0
 
         if (amount == 0) {

@@ -17,8 +17,8 @@
  //}while(checkLength(year));
 
 //   var result= Utility.leapYear(year);
-   console.log(Utility.leapYear(year)? 'Year '+year+' Is leap Year' : 'Year '+year+' Is Not leap Year' );
-   
+   console.log(Utility.leapYear(year)? 'Year Is leap Year' : 'Year Is Not leap Year' );
+      
  // checking  year is 4 digit number or not
 //  function checkLength(year)
 //  {

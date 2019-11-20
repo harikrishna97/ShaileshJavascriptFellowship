@@ -18,19 +18,19 @@ const Utility=require('../utility/linkedList')
 var list=new Utility.LinkedList;
 const fos=require('fs')
 
-var stringData=Utility.inputFromFile('unorderList.txt');
+var intData=Utility.inputFromFile('orderList.txt');
 
-for(let i=0;i<stringData.length;i++){
-    list.addElement(stringData[i])
+for(let i=0;i<intData.length;i++){
+    list.addElement(intData[i])
 }
 console.log(list.display());
 
-console.log('Enter String To be Search :: ');
+console.log('Enter Number To be Search :: ');
 var searchKey=Utility.input()
 try{
-    var format=/[^a-zA-Z]/
+    var format=/[^0-9]/
     if(format.test(searchKey)||searchKey==null||searchKey==undefined){
-        throw 'invalid String'
+        throw 'invalid input'
     }
 
 
@@ -47,10 +47,13 @@ try{
 
     }
 
-    var data=list.display()
+    
+    var data=parseInt(list.display())
+     
+
     //console.log(list.search(searchKey)?'Element Found':'Element Not Found')
 
-    fos.writeFileSync('unorderList.txt',data,'utf8')
+    fos.writeFileSync('orderList.txt',data,'utf8')
     console.log('File Data Is :: '+data);
 }catch(error){
 
