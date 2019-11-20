@@ -67,19 +67,15 @@ module.exports = {
 
                   //console.log(year + " Not Leap Year");
                 return false
-
-
                 }
              }
-        
-        
-        
         }catch (error) {
-            // console.log("not valid input");
-            //  console.log("enter year again");
-            // var year=this.input()
-            //  this.leapYear(year) ; 
-            console.log(" invalid input");
+            console.log("not valid input");
+              console.log("enter year again");
+             let year=parseInt(this.input())
+              this.leapYear(year) ; 
+              
+            
                   
             return error
 
@@ -604,7 +600,7 @@ module.exports = {
 
     //************************* Vanding Machine **********************/
     calculateMinNotes(amount) {
-        var minNote
+        var minNote=0
 
         if (amount == 0) {
             return
