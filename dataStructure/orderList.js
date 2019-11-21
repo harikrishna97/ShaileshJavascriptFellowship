@@ -24,6 +24,9 @@ for(let i=0;i<intData.length;i++){
     list.addElement(intData[i])
 }
 console.log(list.display());
+//list.sortingLinkedlist()
+console.log('After sorting elements in the file are :: '+list.display());
+
 
 console.log('Enter Number To be Search :: ');
 var searchKey=Utility.input()
@@ -42,13 +45,15 @@ try{
     }else{
         console.log(searchKey+' Is Not Found')
         list.addElement(searchKey);
+        
         console.log(searchKey+' Is Added to the File')
+
         //console.log('Elements in the File are :: '+list.display());
 
     }
 
-    
-    var data=parseInt(list.display())
+    list.sortingLinkedlist();
+    var data=list.display()
      
 
     //console.log(list.search(searchKey)?'Element Found':'Element Not Found')

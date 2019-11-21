@@ -9,14 +9,15 @@ module.exports = {
         return input;
 
     },
-
+/****************** validatating Number ****************/
     validatingNumber(number){
         const format=/[^0-9]/;
-        if(format.test(number)||number==null||number==undefined){
+        if(number==undefined||format.test(number)||number===null){
             throw 'invalid input';
         }
 
     },
+/****************** validatating String ****************/
 
     validatingString(string){
         const format=/[^a-zA-Z]/;
@@ -325,8 +326,8 @@ module.exports = {
     gambler(stake, goal, trials) {
         try{
             this.validatingNumber(stake)
-            this.validatingNumber(stake)
-            this.validatingNumber(stake)
+            this.validatingNumber(goal)
+            this.validatingNumber(trials)
 
         
             var  win = 0;
@@ -353,7 +354,17 @@ module.exports = {
             console.log("Percentage of game won :: " +winPercent );
             console.log("Percentage of game Loss :: " +lossPercent );
         }catch(error){
-            console.log('invalid input');
+            console.log('invalid input\nEnter input again');
+            var stake, goal, trials;
+            console.log("Enter Stake Price :: ");
+            stake = this.input();
+            
+            console.log("Enter Stake Goal :: ");
+            goal = this.input();
+            
+            console.log("Enter Number Of Time :: ");
+            trials = this.input();
+            this.gambler(stake,goal,trials)
             
             return error
         }   
@@ -432,11 +443,13 @@ module.exports = {
             }
 
         }
-
-        //  return arr
+        var result=arr.values()
+        //return arr
         console.log("Prime Numbers :: " + arr);
         //return arr
-
+        for (let elements of result) { 
+            console.log(elements); 
+          } 
     //this.isPalindrome(arr)
     
 

@@ -1,11 +1,12 @@
 
      //Node
      class Node{
+
         constructor(data){
             this.data=data;
             this.next=null;
         }
-    }
+     }
 
      class LinkedList{
 
@@ -70,6 +71,7 @@
         //Delete Element from the List
         deleteElement(key){
             if(this.head!=null){
+                
                 if(this.head.data===key){
                     this.head=this.head.next
                     return
@@ -94,6 +96,32 @@
             
 
             }
+        }
+
+        //Sort LinkedList
+        sortingLinkedlist(){
+            var currentNode=this.head
+            var nextNode=null
+            var temp
+
+            if(this.head==null){
+                return
+            }else{
+                while(currentNode!=null){
+                    nextNode=currentNode.next
+                    while(nextNode!=null){
+
+                        if(currentNode.data>nextNode.data){
+                            temp=currentNode.data
+                            currentNode.data=nextNode.data
+                            nextNode.data=temp
+                        }
+                        nextNode=nextNode.next
+                    }
+                    currentNode=currentNode.next
+                }
+            }
+
         }
 
 
