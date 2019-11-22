@@ -11,9 +11,12 @@ const Utility=require('../utility//utility')
 
 console.log("Enter First Word :: ");
 var word1=Utility.input();
+console.log('1 '+word1);
 
 console.log("Enter Second Word :: ");
 var word2=Utility.input();
+console.log('2 '+word2);
+
 
 console.log(Utility.checkAnagrams(word1,word2)? 'Words are Anagram':'Words are not Anagram');
 

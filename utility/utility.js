@@ -3,6 +3,11 @@ var readline = require('readline-sync');
 
 module.exports = {
     /**************** Input From User *************** */
+    /*
+    *@description: Function to get user input 
+    *@param: no parameters
+    *@return:input
+    */
     input() {
 
         let input = readline.question("");
@@ -10,18 +15,28 @@ module.exports = {
 
     },
 /****************** validatating Number ****************/
+    /*
+    *@description: Function to validate number 
+    *@param: number
+    *@return:void
+    */
     validatingNumber(number){
         const format=/[^0-9]/;
-        if(number==undefined||format.test(number)||number===null){
+        if(number==undefined||format.test(number)||number===null||number==''){
             throw 'invalid input';
         }
 
     },
 /****************** validatating String ****************/
+    /*
+    *@description: Function to validate String 
+    *@param: string
+    *@return:void
+    */
 
     validatingString(string){
         const format=/[^a-zA-Z]/;
-        if(format.test(string)||string==null||string==undefined){
+        if(format.test(string)||string==null||(string==undefined)||(string =='')){
             throw 'invalid input';
         }
 
@@ -42,7 +57,11 @@ module.exports = {
     // },
 
     //******************* String Replace*************/
-
+    /*
+    *@description: Function to replace substring from a given string 
+    *@param: name
+    *@return:void
+    */
     stringReplacer(name) {
 
         try {
@@ -67,7 +86,11 @@ module.exports = {
 
 
     //****************** LeapYear *********************/ 
-
+    /*
+    *@description: Function to check year is leap year or not 
+    *@param: year
+    *@return:true or false
+    */
     leapYear(year) {
         try {
             let format = /[^0-9]/;
@@ -95,24 +118,27 @@ module.exports = {
              var currentYear=year;
              console.log("YEAR",year);
              
-              this.leapYear(year) ; 
-              
-            
+              this.leapYear(year) ;
                   
             return error
 
         }
-        return currentYear
+        
     },
 
 
     //****************** Harmonic Number ****************/
-
+    /*
+    *@description: Function to calculate harmonic number of a given number n 
+    *@param: number n
+    *@return:void
+    */
     harmonic(n) {
 
         try{
             let format=/[^1-9]/
-          if(format.test(n)|| n==null ||n==undefined){
+          if(format.test(n)|| n==null ||n==undefined||n==''){
+              throw 'invalid input'
           }else{
             var har = 0;
             for (var i = 1; i <= n; i++) {
@@ -129,7 +155,12 @@ module.exports = {
         }
     },
 
-    //******************* Flip Coin **************** */ 
+    //******************* Flip Coin **************** */
+    /*
+    *@description: Function calculate percentage of head and tails 
+    *@param: number(number of times to flip coin)
+    *@return:void
+    */ 
     findPercentage(number) {
         try{
             let format=/[^0-9]/
@@ -162,11 +193,16 @@ module.exports = {
     },
 
     //***************Power Of 2 **************/
+    /*
+    *@description: Function calculate power of 2 
+    *@param: number
+    *@return:void
+    */
     findPowerOf2(number) {
         try{
             let format=/[^0-9]/
             
-            if(format.test(number)||number===null||number===undefined){
+            if(format.test(number)||number===null||number===undefined||number==''){
                 throw 'invalid input'
             }else{
                 for (i = 0; i <= number; i++) {
@@ -180,11 +216,16 @@ module.exports = {
     },
 
     //************************* Prime Factor************/
+    /*
+    *@description: Function find prime faactors of a given number 
+    *@param: number n
+    *@return:void
+    */
     primeFactors(n) {
         try{
             let format=/[^0-9]/
             
-            if(format.test(n)||n===null||n===undefined){
+            if(format.test(n)||n===null||n===undefined||n==''){
                 throw 'invalid input'
             }else{
 
@@ -207,12 +248,15 @@ module.exports = {
     },
 
     /********************* Array **********************/
-
+    /*
+    *@description: Function to get input array from user 
+    *@param: number(size of array)
+    *@return:arr
+    */
     input1DArray(number) {
         try{
             let format=/[^0-9]/
-            var tail = 0, head = 0;
-            if(format.test(number)||number===null||number===undefined){
+            if(format.test(number)||number===null||number===undefined||number==''){
                 throw 'invalid input'
         const arr = [];
 
@@ -230,7 +274,11 @@ module.exports = {
 
 
     /****************** Triplates*************************/
-
+    /*
+    *@description: Function find the number of triplte whose sum is zero 
+    *@param: array
+    *@return:count
+    */
     findDistinctTriplate(arr) {
         var n = arr.length;
         const sum = 0;
@@ -253,12 +301,17 @@ module.exports = {
     },
 
     /**************** Coupon Number************************* */
+    /*
+    *@description: Function to generate distinct coupon number 
+    *@param: no  parameters
+    *@return:front.data
+    */
     generateDistinctCoupon(n) {
 
         try{
             let format=/[^0-9]/
            
-            if(format.test(n)||n===null||n===undefined){
+            if(format.test(n)||n===null||n===undefined||n==''){
                 throw 'invalid input'}
             else{    
             let count = 0;
@@ -278,7 +331,7 @@ module.exports = {
             console.log("Distint Coupon Numbers are :: " + arr);
             console.log("Random Numbers Require to generate "+n+" Distinct coupons Numbers are :: "+count);
 
-            return true;
+            //return true;
         } 
         }
     catch(error){
@@ -289,12 +342,16 @@ module.exports = {
     },
 
     /************************** TwoDArray ***************************************/
-
+    /*
+    *@description: Function to print 2D array 
+    *@param: row and column
+    *@return:void
+    */
     print2DArray(row, column) {
         try{
             let format=/[^0-9]/
            
-            if((format.test(row)||row===null||row===undefined)||(format.test(column)||column===null||column===undefined)){
+            if((format.test(row)||row===null||row===undefined)||row==''||column==''||(format.test(column)||column===null||column===undefined)){
                 throw 'invalid input'
             }
             else{
@@ -323,6 +380,11 @@ module.exports = {
     },
 
     /****************** Gambling Game *************************/
+    /*
+    *@description: Function to implement gambling game 
+    *@param: stake,goal,trials
+    *@return:void
+    */
     gambler(stake, goal, trials) {
         try{
             this.validatingNumber(stake)
@@ -374,50 +436,82 @@ module.exports = {
     /*********************************************************************************************** */
     
     /**************** Anagram Detection **************************/
-    // checkAnagrams(word1, word2) {
-    //     var str1 = this.reduceCodeForAnagram(word1);
-    //     var str2 = this.reduceCodeForAnagram(word2);
-    //     return (str1 === str2)
-
-    // },
-
-    // reduceCodeForAnagram(word) {
-    //     return word.toLowerCase().split('').sort().join('');
-
-    // },
-
+    /*
+    *@description: Function to check given two words are anagram or not 
+    *@param: word1,word2
+    *@return:true or false
+    */
     checkAnagrams(word1, word2) {
-        var format = /[a-zA-Z]/;
-        
-        var count = 0;
-        if (format.test(word1) && format.test(word2)) {
-            if (word1.length !== word2.length) {
-                console.log("strings are not anagram");
+        var format=/[^a-zA-Z]/
+        try{
+            if(format.test(word1)||word1==null||word1==undefined||word1==''||format.test(word2)|word2==null||word2==undefined||word2==''){
+                throw 'invalid input'
             }
-            else {
-                for (var i = 0; i < word1.length; i++) {
-                    for (var t = 0; t < word2.length; t++) {
-                        if (word2[t].toLowerCase() == word1[i].toLowerCase()) {
-                        count++;
-                        break;
-                         }
-                    }
-                }
-                if (count == word1.length) {
-                    return true
-                }
-                else {
-                    return false
-                }
+            var str1 = this.reduceCodeForAnagram(word1);
+            var str2 = this.reduceCodeForAnagram(word2);
+            if(str1 === str2){
+                return true
+            }else{
+                return false
             }
-        }
-        else {
-        console.log("invalid input");
-        }
-        },
+        }catch(error){
+            console.log('invalid input\nEnter input again');
+            console.log("Enter First Word :: ");
+            var word1=this.input();
+            console.log("Enter Second Word :: ");
+            var word2=this.input();
+            this.checkAnagrams(word1, word2);
+            return error
+        }    
+
+    },
+
+    reduceCodeForAnagram(word) {
+        return (word.toLowerCase().split('').sort().join(''));
+
+    },
+
+    // checkAnagrams(word1, word2) {
+    //    // var format = /[a-zA-Z]/;
+    //     try{
+           
+    //             var count = 0;
+    //             if (format.test(word1) && format.test(word2)) {
+    //                 if (word1.length !== word2.length) {
+    //                     console.log("strings are not anagram");
+    //                 }
+    //                 else {
+    //                     for (var i = 0; i < word1.length; i++) {
+    //                         for (var t = 0; t < word2.length; t++) {
+    //                             if (word2[t].toLowerCase() == word1[i].toLowerCase()) {
+    //                             count++;
+    //                             break;
+    //                             }
+    //                         }
+    //                     }
+    //                     if (count == word1.length) {
+    //                         return true
+    //                     }
+    //                     else {
+    //                         return false
+    //                     }
+    //                 }
+    //             }
+    //             else {
+    //             console.log("invalid input");
+    //             }
+    //         }catch(error){
+
+    //             return error
+    //         }        
+    // },
 
     /************************** Prime Number in a range 0 - 1000 */
-
+    /*
+    *@description: Function print prime numbers between 0-1000 
+    *@param: no  parameters
+    *@return:void
+    */
     primeNumberInARange() {
         var arr = [];
         const sum = 0
@@ -455,8 +549,12 @@ module.exports = {
 
     },
     /************************** Palindrome Checker */
+    /*
+    *@description: Function to check for palindrome or not 
+    *@param: num
+    *@return:void
+    */
     isPalindrome(num){
-        console.log("ffsaasfd");
         
         var arr=[]
         arr=num;
@@ -486,6 +584,11 @@ module.exports = {
     /********************************************************************************* */
 
     //******************** Buble Sort For Interger ***************************** */
+    /*
+    *@description: Function to implement buble sort for integer
+    *@param: intArr
+    *@return:front.data
+    */
 
     bubbleSortInt(intArr) {
         const n = intArr.length
@@ -504,6 +607,11 @@ module.exports = {
         //return intArr
     },
     //******************** Insertion Sort For Interger ***************************** */
+    /*
+    *@description: Function implement insertion sort for integer array 
+    *@param: intArr
+    *@return:void
+    */
 
     insertionSortInt(intArr) {
         var temp;
@@ -524,6 +632,11 @@ module.exports = {
     },
 
     /************************ Binary Search For Integer Value************ */
+    /*
+    *@description: Function to implement binary search for integer array 
+    *@param: intArr and key
+    *@return:void
+    */
      binarySearchForInt(intArr,key){
         var first=0;
         var last=intArr.length-1
@@ -554,6 +667,11 @@ module.exports = {
     
     },
     /************************ Binary Search For String Value************ */
+    /*
+    *@description: Function to implement binary search for string array 
+    *@param: arr and key
+    *@return:true or false
+    */
 
     binarySearchForString(arr,key){
         var first=0;
@@ -580,6 +698,11 @@ module.exports = {
         
     },
     //*************************** Merge Sort ********************** */
+    /*
+    *@description: Function to implement merge sort for string array 
+    *@param: leftArr and rightArr
+    *@return:sortedArr
+    */
      merge(leftArr, rightArr) {
         var sortedArr = [];
         while (leftArr.length && rightArr.length) {
@@ -616,6 +739,11 @@ module.exports = {
         }
     }, 
     /************************* Find Your Number ********************/
+    /*
+    *@description: Function to find your guese number  
+    *@param:no parameters
+    *@return:void
+    */
     findYourNumber() {
         try {
         var low = 0, high = 100, mid;
@@ -643,6 +771,11 @@ module.exports = {
         },
 
     //************************* Vanding Machine **********************/
+    /*
+    *@description: Function to calculate minimum number of notes in the vending machine 
+    *@param: amount
+    *@return:void
+    */
     calculateMinNotes(amount) {
         
         var minNote=0
@@ -744,6 +877,11 @@ module.exports = {
     },
 
     //************************* Temperature Conversion ******************** */
+    /*
+    *@description: Function to to convert temperature form degree to farenheit and vice versa 
+    *@param: farTemp, celTemp
+    *@return:void
+    */
     tempConversion(farTemp, celTemp) {
         var celcius = (farTemp - 32) * 5 / 9;
         console.log("celcius converted temprature of " +farTemp+ "F is ::" + celcius + "C")
@@ -752,6 +890,12 @@ module.exports = {
         },
 
         /***************************** Squre Root *****************************/
+        /*
+        *@description: Function to find squareRoot of a given number 
+        *@param: number c
+        *@return:void
+        */
+        
         findSqureRoot(c){
             var t=c
             var epsilon=1e-15;
@@ -762,7 +906,6 @@ module.exports = {
 
         },
 
-        //*****************palindrome Number Checker ************* */
               
     
 

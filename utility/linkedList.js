@@ -1,20 +1,33 @@
 
      //Node
      class Node{
-
+        /*
+        *@description: constructor to intitalize next=null and data 
+        *@param: data
+        *@return:void
+        */
         constructor(data){
             this.data=data;
             this.next=null;
         }
      }
 
-     class LinkedList{
-
+     exportsclass LinkedList{
+        /*
+        *@description: constructor to initialize head=null 
+        *@param: no parameters
+        *@return:void
+        */
         constructor(){
              this.head=null
         }
         
-        //Add element in the LinkedList
+        /*
+        *@description: function to insert element in the linkedlist
+        *@param: data
+        *@return:void
+        */
+        
         addElement(data){
              
             var node=new Node(data)
@@ -35,7 +48,11 @@
 
 
         }
-        //Display Nodes in the LisnkedList
+        /*
+        *@description: function to display all element from the Queue 
+        *@param: no parameters
+        *@return:void
+        */
        display(){
            
             var temp=this.head
@@ -50,7 +67,11 @@
             }
             return str;
         }
-        //Find the element in the LinkedList
+        /*
+        *@description: function to search element from the linkedlist 
+        *@param: no parameters
+        *@return:void
+        */
         search(searchKey){
             if(this.head==null){
                 return false
