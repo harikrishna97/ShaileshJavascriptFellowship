@@ -53,11 +53,12 @@
         addFront(data){
             var temp=new Node(data)
 
-            if(this.isEmpty()){
-                this.front=this.rear=temp;
+            if(this.front==null){
+                this.front=temp
+                this.rear=temp;
 
-            }else{
-                this.front.pre=temp;
+            }else {
+                this.front.prev=temp;
                 this.front=temp;
             }
             console.log('Data'+data+' inserted Successfully');
@@ -73,8 +74,9 @@
         addRear(data){
             var temp=new Node(data)
 
-            if(this.rear==null){
-                this.front=this.rear=temp;
+            if(this.front==null){
+                this.front=temp
+                this.rear=temp;
             }else{
                 this.rear.next=temp
                 this.rear=temp
@@ -112,17 +114,18 @@
         *@param: no parameters
         *@return:void
         */
+       
         removeFront(){
-
+            
             if(this.front==null){
                 console.log('Underflow.SS.\nDequeue is Empty');
+               
                 
             }else {
 
                 var temp=this.front
 
                 this.front=this.front.next
-
                 if(this.front==null){
                     this.rear=null
                 }else{
@@ -130,7 +133,7 @@
                 }
                 console.log('Removed '+temp.data)
                 this.size--
-                return
+                // return
             }
              
         }
@@ -141,17 +144,18 @@
         *@return:void
         */
         removeRear(){
-            if(this.isEmpty()){
+            if(this.rear==null){
                 console.log('Underflow..\nDequeue is Empty');
-                
-            }else{
-                var temp=this.front
+                return false
+            }
+            else{
+                var temp=this.rear
                 this.rear=this.rear.prev
-                
+                //if only one element is present
                 if(this.rear==null){
                     this.front=null
                 }else{
-                    this.rear.next=null
+                this.rear.prev=null
                 }
                 console.log('Removed '+temp.data);
                 this.size--

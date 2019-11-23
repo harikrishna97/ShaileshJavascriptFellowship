@@ -27,36 +27,44 @@ console.log(list.display());
 
 console.log('Enter String To be Search :: ');
 var searchKey=Utility.input()
-try{
-    var format=/[^a-zA-Z]/
-    if(format.test(searchKey)||searchKey==null||searchKey==undefined){
-        throw 'invalid String'
+unOrderList(searchKey);
+
+function unOrderList(searchKey){
+    try{
+        var format=/[^a-zA-Z]/
+        if(format.test(searchKey)||searchKey==null||searchKey==undefined||searchKey==''){
+            throw 'invalid String'
+        }else{
+
+
+            var result=list.search(searchKey)
+
+            if(result===true){
+                console.log('Element '+searchKey+' Is Found');
+                list.deleteElement(searchKey);     
+            }else{
+                console.log(searchKey+' Is Not Found')
+                list.addElement(searchKey);
+                console.log(searchKey+' Is Added to the File')
+                //console.log('Elements in the File are :: '+list.display());
+
+            }
+
+            var data=list.display()
+            //console.log(list.search(searchKey)?'Element Found':'Element Not Found')
+
+            fos.writeFileSync('unorderList.txt',data,'utf8')
+            console.log('File Data Is :: '+data);
+        }
+
+    }catch(error){
+
+        console.log("invalid input");
+        console.log('Enter input again :: ');
+        console.log('Enter String To be Search :: ');
+        var searchKey=Utility.input()
+        unOrderList(searchKey);
+        return error
+        
     }
-
-
-    var result=list.search(searchKey)
-
-    if(result===true){
-        console.log('Element '+searchKey+'Is Found');
-        list.deleteElement(searchKey);     
-    }else{
-        console.log(searchKey+' Is Not Found')
-        list.addElement(searchKey);
-        console.log(searchKey+' Is Added to the File')
-        //console.log('Elements in the File are :: '+list.display());
-
-    }
-
-    var data=list.display()
-    //console.log(list.search(searchKey)?'Element Found':'Element Not Found')
-
-    fos.writeFileSync('unorderList.txt',data,'utf8')
-    console.log('File Data Is :: '+data);
-}catch(error){
-
-    console.log("invalid Input");
-    // console.log('Enter String To be Search :: ');
-    // var searchKey=Utility.input()
-    return error
-    
 }

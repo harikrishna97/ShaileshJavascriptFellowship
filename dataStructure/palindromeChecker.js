@@ -25,32 +25,44 @@
 
 
  }
+console.log();
 
 var flag=true;
+
+
 loop1:
- if(!deque.isEmpty()&&deque.length()>1){
+ while(deque.length()>1&&flag){
     
      var a=deque.getFront()
-     
-     
      var b=deque.getRear()
-    
-    
-      deque.removeFront()
-      deque.removeRear()
-     
-     
-        if(a==b){
-            
-         flag=true; 
-         
-         
-        }else{
-            flag=false
-            break loop1;
-        }
 
-    }
+     deque.removeFront()
+     deque.removeRear()
+    
+    // var a=deque.removeFront()
+    // console.log('a '+a);
+    
+    // var b=deque.removeRear()
+    // console.log('b '+b);
+    
+      
+     //console.log(deque.length());
+     //if(deque.removeFront()!=deque.removeRear()){
+        if(a!=b){
+         flag=false
+         break loop1;
+     }
+     
+        // if(deque.getFront()!=deque.getRear()){
+            
+        // flag=false
+        // // break loop1;
+        // }else{
+
+        // deque.removeFront()
+        // deque.removeRear()
+        // }
+    }    
 
     if(flag==true){
         console.log('String '+string+' Is  Palindrome');
@@ -58,6 +70,5 @@ loop1:
      }else{
         console.log('String '+string+' Is Not Palindrome');
    
-    
-     }
+    }
  

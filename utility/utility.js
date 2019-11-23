@@ -42,6 +42,20 @@ module.exports = {
 
     },
 
+    validatingIntArray(intArr){
+
+    },
+
+    validatingIntArray(stringArr){
+        const format=/[^a-zA-Z]/
+    if (arr.some(function (el) { return format.test(el); })) {
+        throw "err"
+    } else {
+        console.log('no error')
+    }
+
+    },
+
 
     // /**************  input String Array From User ************ */
     // inputStringArray(arrSize){
@@ -94,7 +108,7 @@ module.exports = {
     leapYear(year) {
         try {
             let format = /[^0-9]/;
-            if ( format.test(year) || (year < 1000) ||  (year > 9999) ) {
+            if ( format.test(year) || (year < 1000) ||  (year > 9999)||year=='' ) {
                 throw 'is invalids';
 
             }
@@ -112,11 +126,8 @@ module.exports = {
              }
         }catch (error) {
             console.log("not valid input");
-              console.log("enter year again");
-            //   var anotherinput=question("enter year again")
+              console.log("enter year again :: ");
              var year=parseInt(this.input())
-             var currentYear=year;
-             console.log("YEAR",year);
              
               this.leapYear(year) ;
                   
@@ -149,7 +160,9 @@ module.exports = {
         } 
     }catch(error){
         console.log('invalid input');
-        
+        console.log("Enter Number Again :: ");
+        var n=this.input();
+        this.harmonic(n);
         return error;
 
         }
@@ -165,7 +178,7 @@ module.exports = {
         try{
             let format=/[^0-9]/
             var tail = 0, head = 0;
-            if(format.test(number)||number==null||number==undefined){
+            if(format.test(number)||number==null||number==undefined||number==''){
                 throw 'invalid input'
             }else{
                 
@@ -188,6 +201,13 @@ module.exports = {
             console.log("Head Percentage Are :: " + headPercent);
             console.log("Tail Percentage Are :: " + tailPercent);
         }catch(error){
+            console.log('invalid input');
+            console.log('Enter input again');
+            console.log("Enter The Number of Times To Flip Coin");
+            var number = this.input();
+
+            this.findPercentage(number);
+            
             return error
         }
     },
@@ -211,6 +231,10 @@ module.exports = {
                 }
             }
         }catch(error){
+            console.log("Enter Number Again :: ");
+            var n=this.input();
+
+            this.findPowerOf2(n);
             return error
         }
     },
@@ -243,6 +267,10 @@ module.exports = {
                 }
             }     
         }catch(error){
+            console.log('invalid input');
+            console.log("Enter Number Again :: ");
+            var n=this.input();
+            this.primeFactors(n)
             return true
         }
     },
@@ -280,31 +308,38 @@ module.exports = {
     *@return:count
     */
     findDistinctTriplate(arr) {
-        var n = arr.length;
-        const sum = 0;
-        let c = 0;
+        try{
+                var n = arr.length;
+                this.validatingNumber(n)
+                const sum = 0;
+                let c = 0;
 
-        for (let i = 0; i < n; i++) {
-            for (let j = i + 1; j < n; j++) {
-                for (let k = j + 1; k < n; k++) {
+                for (let i = 0; i < n; i++) {
+                    for (let j = i + 1; j < n; j++) {
+                        for (let k = j + 1; k < n; k++) {
 
-                    if (arr[i] + arr[j] + arr[k] == sum) {
-                        c = c + 1;
-                        console.log("Triplet is :: " + arr[i] + " +" + arr[j] + " +" + arr[k] + " =0");
+                            if (arr[i] + arr[j] + arr[k] == sum) {
+                                c = c + 1;
+                                console.log("Triplet is :: " + arr[i] + " +" + arr[j] + " +" + arr[k] + " =0");
+
+                            }
+                        }
 
                     }
                 }
-
-            }
-        }
-        return c;
+                return c;
+        }catch(error){
+            console.log('invalid input');
+            return error
+            
+        }        
     },
 
     /**************** Coupon Number************************* */
     /*
     *@description: Function to generate distinct coupon number 
     *@param: no  parameters
-    *@return:front.data
+    *@return:void
     */
     generateDistinctCoupon(n) {
 
@@ -335,8 +370,11 @@ module.exports = {
         } 
         }
     catch(error){
-        //console.log("Error");
-        
+        console.log("invalid input");
+        console.log("Enter number of Coupons again :: ");
+        var number=this.input();
+
+        this.generateDistinctCoupon(number);
         return error
     } 
     },
@@ -373,8 +411,13 @@ module.exports = {
                 
             }
         }catch(error){
-            console.log("error");
-            
+            console.log(error);
+            console.log("Enter Number Of Rows :: ");
+
+            var rows = this.input()
+            console.log("Enter Number Of Columns :: ");
+            var columns = this.input()
+            this.print2DArray(rows,columns);
             return error  
         }    
     },
@@ -390,8 +433,6 @@ module.exports = {
             this.validatingNumber(stake)
             this.validatingNumber(goal)
             this.validatingNumber(trials)
-
-        
             var  win = 0;
         
             for (i = 0; i < trials; i++) {
@@ -512,40 +553,50 @@ module.exports = {
     *@param: no  parameters
     *@return:void
     */
-    primeNumberInARange() {
-        var arr = [];
-        const sum = 0
-        // for(let k=0;k<1000;k++){
+    primeNumberInARange(from,to) {
+        try{
+            var format=/[^0-9]/
+            if(format.test(from)||format.test(to)||from==''||to==''||from==null||from==undefined||to==null||to==undefined){
+                throw 'invalid input'
+            }else{
+                var arr = [];
+                const sum = 0
+                // for(let k=0;k<1000;k++){
 
-        for (let i = 0; i <= 1000; i++) {
-            if (i == 2) {
-                arr.push(i);
-            }
-            var flag = 0;
-            for (let j = 2; j < i; j++) {
+                for (let i = from; i <= to; i++) {
+                    if (i == 2) {
+                        arr.push(i);
+                    }
+                    var flag = 0;
+                    for (let j = 2; j < i; j++) {
 
-                if (i % j == sum) {
-                    flag = 0
-                    break
-                } else {
-                    flag = 1;
+                        if (i % j == sum) {
+                            flag = 0
+                            break
+                        } else {
+                            flag = 1;
+                        }
+                    }
+                    if (flag == 1) {
+                        arr.push(i);
+                        //console.log(i+' ');
+                    }
+
                 }
-            }
-            if (flag == 1) {
-                arr.push(i);
-                //console.log(i+' ');
-            }
-
-        }
-        var result=arr.values()
-        //return arr
-        console.log("Prime Numbers :: " + arr);
-        //return arr
-        for (let elements of result) { 
-            console.log(elements); 
-          } 
-    //this.isPalindrome(arr)
-    
+                return arr
+            }    
+            //this.isPalindrome(arr)
+        }catch(error){
+            console.log('invalid input');
+            console.log("Enter Input Again");
+            console.log('Prime Number Range From :: ');
+            var from=this.input()
+            console.log('Prime Number Range To :: ');
+            var from=this.input()
+            this.primeNumberInARange(from,to);
+            return error;
+            
+        }   
 
     },
     /************************** Palindrome Checker */
@@ -579,8 +630,7 @@ module.exports = {
             }
         
         
-        }
-       ,
+        },
     /********************************************************************************* */
 
     //******************** Buble Sort For Interger ***************************** */
@@ -591,20 +641,31 @@ module.exports = {
     */
 
     bubbleSortInt(intArr) {
-        const n = intArr.length
+            try{
+                const n = intArr.length
+                if(n==null||n==undefined||n==''){
+                    throw 'invalid input'
+                }else{
+                    for (let i = 0; i < n - 1; i++) {
+                        for (let j = 0; j < n - i - 1; j++) {
+                            if (intArr[j] > intArr[j + 1]) {
+                                let temp = intArr[j];
+                                intArr[j] = intArr[j + 1]
+                                intArr[j + 1] = temp
+                            }
 
-        for (let i = 0; i < n - 1; i++) {
-            for (let j = 0; j < n - i - 1; j++) {
-                if (intArr[j] > intArr[j + 1]) {
-                    let temp = intArr[j];
-                    intArr[j] = intArr[j + 1]
-                    intArr[j + 1] = temp
-                }
+                        }
+                    }
+                    console.log(intArr)
+                    //return intArr
+                }    
+            }catch(error){
 
-            }
-        }
-        console.log(intArr)
-        //return intArr
+                console.log('invalid input');
+                return error
+                
+            }        
+
     },
     //******************** Insertion Sort For Interger ***************************** */
     /*
@@ -614,21 +675,33 @@ module.exports = {
     */
 
     insertionSortInt(intArr) {
-        var temp;
+        try{
+                var temp;
 
-        var n = intArr.length;
-        for (let i = 1; i < n; i++) {
+                var n = intArr.length;
+            if(n==null||n==undefined||n==''){
+                throw 'invalid input'
+            }else{
 
-            temp = intArr[i];
-            var j = i;
-            while (j > 0 && intArr[j] < intArr[j - 1]) {
-                intArr[j] = intArr[j - 1];
-                j--;
-                intArr[j] = temp;
-            }
+                for (let i = 1; i < n; i++) {
 
-        }
-        console.log(intArr);
+                    temp = intArr[i];
+                    var j = i;
+                    while (j > 0 && intArr[j] < intArr[j - 1]) {
+                        intArr[j] = intArr[j - 1];
+                        j--;
+                        intArr[j] = temp;
+                    }
+
+                }
+                console.log(intArr);
+            }    
+        }catch(error){
+            console.log('invalid input');
+            return error
+            
+            
+        }        
     },
 
     /************************ Binary Search For Integer Value************ */
@@ -638,32 +711,46 @@ module.exports = {
     *@return:void
     */
      binarySearchForInt(intArr,key){
-        var first=0;
-        var last=intArr.length-1
-        var mid;
-        while(first<=last){
-            mid=Math.floor(first+last)/2
+         try{
+            const format=/[^0-9]/;
+            if(format.test(key)||key==undefined||key==null||key==''){
+                throw 'invalid input';
+            }else{
+                var first=0;
+                var last=intArr.length-1
+                var mid;
+                while(first<=last){
+                    mid=Math.floor(first+last)/2
 
-            if(intArr[mid]==key){
-            //console.log("Element "+key+" is found at location :: "+(mid+1));
-            console.log("found");
+                    if(intArr[mid]==key){
+                    //console.log("Element "+key+" is found at location :: "+(mid+1));
+                    console.log("found");
+                    
+                    //return true
+                    //break
+                    }
+                    else if(key>intArr[mid]){
+                        fisrt=mid+1
+                    }else{
+                        last=mid-1
+                    }
+                }
+                if(first>last){
+                    console.log("Element "+key+" is not found");
+                    
+                }
+            }    
+        }catch(error){
+            console.log(error);
+            console.log('Enter input again :: ');
+            const intArr=[1,2,3,4,5,6,7,8,9]
+            console.log('Array contains :: '+intArr);
+            console.log("Enter Number To be Search :: ");
+            var key=this.input()
+            this.binarySearchForInt(intArr,key);
+            return error
+        }    
             
-            //return true
-            break
-             }
-            else if(key>intArr[mid]){
-                fisrt=mid+1
-            }
-           
-            else{
-                last=mid-1
-            }
-        }
-        if(first>last){
-            console.log("Element "+key+" is not found");
-            
-        }
-    
     
     },
     /************************ Binary Search For String Value************ */
@@ -777,102 +864,111 @@ module.exports = {
     *@return:void
     */
     calculateMinNotes(amount) {
-        
-        var minNote=0
+        loop1:
+        try{
+                this.validatingNumber(amount);
+            var minNote=0
 
-        if (amount == 0) {
-            return
-        }
-        //calculate 1000 rupees notes
-        if (amount >= 1000) {
-            minNote = minNote + parseInt(amount / 1000)
-            console.log("1000 Rupees Notes Are :: " + parseInt(amount / 1000));
-
-            if (amount / 1000 == 0) {
-                return
-            } else {
-                this.calculateMinNotes(amount % 1000)
+            if (amount == 0) {
+                break loop1;
             }
-        }
-        //calculate 500 rupees notes
-        else if (amount >= 500) {
-            minNote = minNote + parseInt(amount / 500)
-            console.log("500 Rupees Notes Are :: " + parseInt(amount / 500));
+            //calculate 1000 rupees notes
+            if (amount >= 1000) {
+                minNote = minNote + parseInt(amount / 1000)
+                console.log("1000 Rupees Notes Are :: " + parseInt(amount / 1000));
 
-            if (amount / 500 == 0) {
-                return
-            } else {
-                this.calculateMinNotes(amount % 500)
+                if (amount / 1000 == 0) {
+                    return
+                } else {
+                    this.calculateMinNotes(amount % 1000)
+                }
             }
-        }
-        //calculate 100 rupees notes
-        else if (amount >= 100) {
-            minNote = minNote + parseInt(amount / 100)
-            console.log("100 Rupees Notes Are :: " + parseInt(amount / 100));
+            //calculate 500 rupees notes
+            else if (amount >= 500) {
+                minNote = minNote + parseInt(amount / 500)
+                console.log("500 Rupees Notes Are :: " + parseInt(amount / 500));
 
-            if (amount / 100 == 0) {
-                return
-            } else {
-                this.calculateMinNotes(amount % 100)
+                if (amount / 500 == 0) {
+                    return
+                } else {
+                    this.calculateMinNotes(amount % 500)
+                }
             }
-        }
-        //calculate 50 rupees notes
-        else if (amount >= 50) {
-            minNote = minNote + parseInt(amount / 50)
-            console.log("50 Rupees Notes Are :: " + parseInt(amount / 50));
+            //calculate 100 rupees notes
+            else if (amount >= 100) {
+                minNote = minNote + parseInt(amount / 100)
+                console.log("100 Rupees Notes Are :: " + parseInt(amount / 100));
 
-            if (amount / 50 == 0) {
-                return
-            } else {
-                this.calculateMinNotes(amount % 50)
+                if (amount / 100 == 0) {
+                    return
+                } else {
+                    this.calculateMinNotes(amount % 100)
+                }
             }
-        }
-        //calculate 10 rupees notes
-        else if (amount >= 10) {
-            minNote = minNote + parseInt(amount / 10)
-            console.log("10 Rupees Notes Are :: " + parseInt(amount / 10));
+            //calculate 50 rupees notes
+            else if (amount >= 50) {
+                minNote = minNote + parseInt(amount / 50)
+                console.log("50 Rupees Notes Are :: " + parseInt(amount / 50));
 
-            if (amount / 10 == 0) {
-                return
-            } else {
-                this.calculateMinNotes(amount % 10)
+                if (amount / 50 == 0) {
+                    return
+                } else {
+                    this.calculateMinNotes(amount % 50)
+                }
             }
-        }
-        //calculate 5 rupees notes
-        else if (amount >= 5) {
-            minNote = minNote + parseInt(amount / 5)
-            console.log("5 Rupees Notes Are :: " + parseInt(amount / 5));
+            //calculate 10 rupees notes
+            else if (amount >= 10) {
+                minNote = minNote + parseInt(amount / 10)
+                console.log("10 Rupees Notes Are :: " + parseInt(amount / 10));
 
-            if (amount / 5 == 0) {
-                return
-            } else {
-                this.calculateMinNotes(amount % 5)
+                if (amount / 10 == 0) {
+                    return
+                } else {
+                    this.calculateMinNotes(amount % 10)
+                }
             }
-        }
-        //calculate 2 rupees notes
-        else if (amount >= 2) {
-            minNote = minNote + parseInt(amount / 2)
-            console.log("2 Rupees Notes Are :: " + parseInt(amount / 2));
+            //calculate 5 rupees notes
+            else if (amount >= 5) {
+                minNote = minNote + parseInt(amount / 5)
+                console.log("5 Rupees Notes Are :: " + parseInt(amount / 5));
 
-            if (amount / 2 == 0) {
-                return
-            } else {
-                this.calculateMinNotes(amount % 2)
+                if (amount / 5 == 0) {
+                    return
+                } else {
+                    this.calculateMinNotes(amount % 5)
+                }
             }
-        }
-        //calculate 1 rupees notes
-        else if (amount >= 1) {
-            minNote = minNote + parseInt(amount / 1)
-            console.log("1 Rupees Notes Are :: " + parseInt(amount / 1));
+            //calculate 2 rupees notes
+            else if (amount >= 2) {
+                minNote = minNote + parseInt(amount / 2)
+                console.log("2 Rupees Notes Are :: " + parseInt(amount / 2));
 
-            if (amount / 1 == 0) {
-                return
-            } else {
-                this.calculateMinNotes(amount % 1)
+                if (amount / 2 == 0) {
+                    return
+                } else {
+                    this.calculateMinNotes(amount % 2)
+                }
             }
-        }
+            //calculate 1 rupees notes
+            else if (amount >= 1) {
+                minNote = minNote + parseInt(amount / 1)
+                console.log("1 Rupees Notes Are :: " + parseInt(amount / 1));
 
-        return minNote;
+                if (amount / 1 == 0) {
+                    break loop1
+                } else {
+                    this.calculateMinNotes(amount % 1)
+                }
+            }
+
+            return minNote;
+        }catch(error){
+            console.log('invalid input');
+            console.log("Enter Amount Again :: ");
+            var amount=this.input()
+            this.calculateMinNotes(amount)
+            return error
+        }    
 
     },
 
@@ -883,10 +979,20 @@ module.exports = {
     *@return:void
     */
     tempConversion(farTemp, celTemp) {
-        var celcius = (farTemp - 32) * 5 / 9;
-        console.log("celcius converted temprature of " +farTemp+ "F is ::" + celcius + "C")
-        var farenheit = (celTemp * 9/5) + 32;
-        console.log("fahrenhite converted temprature of " +celTemp+ "C is ::"+ farenheit + "F")
+        try{
+            var format=/[^0-9]/
+            if(format.test(farTemp)||format.test(calTemp)||farTemp==null||farTemp==undefined||celTemp==null||celTemp==''||calTemp==undefined){
+                throw 'invalid input'
+            }else{
+
+                var celcius = (farTemp - 32) * 5 / 9;
+                console.log("celcius converted temprature of " +farTemp+ "F is ::" + celcius + "C")
+                var farenheit = (celTemp * 9/5) + 32;
+                console.log("fahrenhite converted temprature of " +celTemp+ "C is ::"+ farenheit + "F")
+            }
+        }catch(error){
+            return error
+        }     
         },
 
         /***************************** Squre Root *****************************/
@@ -897,12 +1003,20 @@ module.exports = {
         */
         
         findSqureRoot(c){
-            var t=c
-            var epsilon=1e-15;
-            while(Math.abs(t-c/t)>epsilon*t){
-                t=((c/t)+t)/2.0//
-            }
-            console.log(t)
+            try{
+                var t=c
+                var epsilon=1e-15;
+                while(Math.abs(t-c/t)>epsilon*t){
+                    t=((c/t)+t)/2.0//
+                }
+                console.log(t)
+            }catch(error){
+                console.log(error);
+                console.log("Enter The Number to Find SqureRoot :: ");
+                var number = Utility.input();
+                Utility.findSqureRoot(number);
+                
+            }    
 
         },
 

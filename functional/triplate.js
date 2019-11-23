@@ -19,9 +19,7 @@ const Utility=require('../utility/utility');
     
     arr[i]=parseInt(Utility.input());
 }
-//  
 
-// console.log(" Array is :: "+arr);
 
 //var arr=[1,2,-3,1,2]
 console.log("Number of Distinct Triplate are :: "+Utility.findDistinctTriplate(arr));

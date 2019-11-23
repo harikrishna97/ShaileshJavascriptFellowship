@@ -16,6 +16,7 @@
 //const Utility=require('../utility/utility')
 const Utility=require('../utility/linkedList')
 var list=new Utility.LinkedList;
+
 const fos=require('fs')
 
 var intData=Utility.inputFromFile('orderList.txt');
@@ -30,6 +31,7 @@ console.log('After sorting elements in the file are :: '+list.display());
 
 console.log('Enter Number To be Search :: ');
 var searchKey=Utility.input()
+function orderListFun()
 try{
     var format=/[^0-9]/
     if(format.test(searchKey)||searchKey==null||searchKey==undefined){

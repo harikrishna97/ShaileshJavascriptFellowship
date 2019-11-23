@@ -12,7 +12,7 @@
         }
      }
 
-     exportsclass LinkedList{
+     class LinkedList{
         /*
         *@description: constructor to initialize head=null 
         *@param: no parameters
