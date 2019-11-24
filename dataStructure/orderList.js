@@ -13,60 +13,61 @@
 
 
 
-//const Utility=require('../utility/utility')
+const Util=require('../utility/dsUtility')
 const Utility=require('../utility/linkedList')
 var list=new Utility.LinkedList;
 
 const fos=require('fs')
 
-var intData=Utility.inputFromFile('orderList.txt');
-
-for(let i=0;i<intData.length;i++){
-    list.addElement(intData[i])
-}
-console.log(list.display());
-//list.sortingLinkedlist()
-console.log('After sorting elements in the file are :: '+list.display());
-
 
 console.log('Enter Number To be Search :: ');
-var searchKey=Utility.input()
-function orderListFun()
-try{
-    var format=/[^0-9]/
-    if(format.test(searchKey)||searchKey==null||searchKey==undefined){
-        throw 'invalid input'
-    }
+var searchKey=parseInt(Utility.input())
+Util.orderListFun(searchKey);
 
 
-    var result=list.search(searchKey)
-
-    if(result===true){
-        console.log('Element '+searchKey+'Is Found');
-        list.deleteElement(searchKey);     
-    }else{
-        console.log(searchKey+' Is Not Found')
-        list.addElement(searchKey);
-        
-        console.log(searchKey+' Is Added to the File')
-
-        //console.log('Elements in the File are :: '+list.display());
-
-    }
-
-    list.sortingLinkedlist();
-    var data=list.display()
-     
-
-    //console.log(list.search(searchKey)?'Element Found':'Element Not Found')
-
-    fos.writeFileSync('orderList.txt',data,'utf8')
-    console.log('File Data Is :: '+data);
-}catch(error){
-
-    console.log("invalid Input");
-    // console.log('Enter String To be Search :: ');
-    // var searchKey=Utility.input()
-    return error
+// function orderListFun(searchKey){
     
-}
+
+// try{
+//     var format=/[^0-9]/
+//     if(format.test(searchKey)||searchKey==null||searchKey==undefined||searchKey==''){
+//         throw 'invalid input'
+//     }else{
+
+
+//         var result=list.search(searchKey)
+
+//         if(result===true){
+//             console.log('Element '+searchKey+' Is Found');
+//             list.deleteElement(searchKey);     
+//         }else{
+//             console.log(searchKey+' Is Not Found')
+//             list.addElement(searchKey);
+            
+//             console.log(searchKey+' Is Added to the File')
+
+//             //console.log('Elements in the File are :: '+list.display());
+
+//         }
+
+//         list.sortingLinkedlist();
+//         var data=list.display()
+        
+
+//         //console.log(list.search(searchKey)?'Element Found':'Element Not Found')
+
+//         fos.writeFileSync('orderList.txt',data,'utf8')
+//         console.log('File Data Is :: '+data);
+//     }    
+// }catch(error){
+
+//     console.log("invalid Input");
+    
+
+//     console.log('Enter Number To be Search :: ');
+//     var searchKey=Utility.input()
+//     orderListFun(searchKey);
+//         return error
+        
+//     }
+// }

@@ -58,11 +58,8 @@
             var temp=this.head
             var str=" ";
             while(temp){
-                //console.log(temp.data);
                 str=str+temp.data+" "
-                // if(temp.next!=null){
-                //     str=str+" "
-                // }
+                
                 temp=temp.next
             }
             return str;

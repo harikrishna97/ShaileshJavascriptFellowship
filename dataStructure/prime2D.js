@@ -9,29 +9,21 @@
  * @since  21/11/2019 
  *****************************************************************************/
 const Utility=require('../utility/dsUtility')
-var result = Utility.primeNumberInARange()//getPrimeNumber(100)
-console.log('Prime Numbers Is '+result);
 
-// let primenumbers = Utility.getPrimeNumber(1000);
-//     console.log(primenumbers);
-//     primearray = [[]];
-//     let range = 100;
-//     let j = 0;
-//     let row = 0;
-//     for (let i = 0; i < primenumbers.length; i++) {
-//         // insert if primenumber is less than range
-//         if (primenumbers[i] < range) {
-//             primearray[row][j] = primenumbers[i];
-//             j++;
-//         }
-//         // increment range and insert if primenumber is greater than range
-//         else {
-//             range += 100;
-//             row = row + 1;
-//             j = 0;
-//             primearray[row] = [];
-//             primearray[row][j] = primenumbers[i];
-//         }
-//     }
-//     for (i = 0; i < 10; i++)
-//         console.log(primearray[i]);
+function primes() {
+    try {
+        var primes = [];
+        var start = 0;
+        var end = 100;
+        for (let i = 0; i < 10; i++) {
+            primes[i] = Utility.primeNumberInARange(start, end)
+            console.log(start + " " + end + ":" + "[" + primes[i]+ "]");
+            start = start + 100;
+            end = end + 100;
+        }
+    } catch (e) {
+        console.log(e.message);
+    }
+
+}
+primes();

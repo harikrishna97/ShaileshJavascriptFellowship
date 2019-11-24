@@ -11,19 +11,20 @@ const Utility=require('../utility/utility')
 
 
 var arrSize;
-var intArr=[]
+var stringArr=[]
 console.log("Enter Size Of Array :: ");
 arrSize=Utility.input()
 
 //intArr=Utility.inputStringArray(arrSize);
 
-console.log("Enter "+arrSize+" Elements");
+console.log("Enter "+arrSize+" Elements of String array :: ");
 
 for(let i=0;i<arrSize;i++){ 
     console.log("Enter "+i+" Element ::");
-    intArr[i]=Utility.input()
+    stringArr[i]=Utility.input()
 }
+// stringArr=[1,2,3,4,5,13,7778,3,2,22,11]
 
 console.log('Sorted Array using Bubble Sort Is :: ')
-Utility.bubbleSortInt(intArr);
+Utility.bubbleSortString(stringArr);
 

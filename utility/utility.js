@@ -50,9 +50,7 @@ module.exports = {
         const format=/[^a-zA-Z]/
     if (arr.some(function (el) { return format.test(el); })) {
         throw "err"
-    } else {
-        console.log('no error')
-    }
+    } 
 
     },
 
@@ -556,7 +554,7 @@ module.exports = {
     primeNumberInARange(from,to) {
         try{
             var format=/[^0-9]/
-            if(format.test(from)||format.test(to)||from==''||to==''||from==null||from==undefined||to==null||to==undefined){
+            if(format.test(from)||format.test(to)||to==''||to==null||to==undefined){
                 throw 'invalid input'
             }else{
                 var arr = [];
@@ -583,7 +581,7 @@ module.exports = {
                     }
 
                 }
-                return arr
+                return (arr+' ')
             }    
             //this.isPalindrome(arr)
         }catch(error){
@@ -637,14 +635,17 @@ module.exports = {
     /*
     *@description: Function to implement buble sort for integer
     *@param: intArr
-    *@return:front.data
+    *@return:void
     */
 
     bubbleSortInt(intArr) {
             try{
                 const n = intArr.length
+                const format=/[^0-9]/
                 if(n==null||n==undefined||n==''){
                     throw 'invalid input'
+                }else if (intArr.some(function (el) { return format.test(el); })) {
+                    throw "invalid Integer array"
                 }else{
                     for (let i = 0; i < n - 1; i++) {
                         for (let j = 0; j < n - i - 1; j++) {
@@ -661,12 +662,84 @@ module.exports = {
                 }    
             }catch(error){
 
-                console.log('invalid input');
+                console.log(error);
+                console.log('Enter input Again :: ');
+                //const intArr=[1,255,232,67,0,4,345,26,98]
+
+                var arrSize;
+                var intArr=[]
+                console.log("Enter Size Of Array :: ");
+                arrSize=this.input()
+
+                console.log("Enter "+arrSize+" Elements");
+
+                for(let i=0;i<arrSize;i++){
+                    console.log("Enter "+i+" Element ::");
+                    intArr[i]=parseInt(this.input())
+                }
+
+                console.log('Sorted Array using Bubble Sort Is :: ')
+                this.bubbleSortInt(intArr);
+
+                
                 return error
                 
             }        
 
     },
+    //******************** Buble Sort For String ***************************** */
+    /*
+    *@description: Function to implement buble sort for String
+    *@param: stringArr
+    *@return:void
+    */
+    bubbleSortString(stringArr) {
+        try{
+            const n = stringArr.length
+            const format=/[^a-zA-Z]/
+            if(n==null||n==undefined||n==''){
+                throw 'invalid input'
+            }else if (stringArr.some(function (el) { return format.test(el); })) {
+                throw "invalid String array"
+            }else{
+                for (let i = 0; i < n - 1; i++) {
+                    for (let j = 0; j < n - i - 1; j++) {
+                        if (stringArr[j] > stringArr[j + 1]) {
+                            let temp = stringArr[j];
+                            stringArr[j] = stringArr[j + 1]
+                            stringArr[j + 1] = temp
+                        }
+
+                    }
+                }
+                console.log(stringArr)
+                //return intArr
+            }    
+        }catch(error){
+
+            console.log(error);
+            console.log('Enter input again :: ');
+            var arrSize;
+            var stringArr=[]
+            console.log("Enter Size Of Array :: ");
+            arrSize=this.input()
+
+            console.log("Enter "+arrSize+" Elements of String array :: ");
+
+            for(let i=0;i<arrSize;i++){ 
+                console.log("Enter "+i+" Element ::");
+                stringArr[i]=this.input()
+            }
+            // stringArr=[1,2,3,4,5,13,7778,3,2,22,11]
+
+            console.log('Sorted Array using Bubble Sort Is :: ')
+            this.bubbleSortString(stringArr);
+                        
+            return error
+                        
+        }        
+
+},
     //******************** Insertion Sort For Interger ***************************** */
     /*
     *@description: Function implement insertion sort for integer array 
@@ -703,6 +776,61 @@ module.exports = {
             
         }        
     },
+
+    //******************** Insertion Sort For Interger ***************************** */
+    /*
+    *@description: Function implement insertion sort for integer array 
+    *@param: intArr
+    *@return:void
+    */
+
+   insertionSortString(stringArr) {
+    try{
+            var temp;
+            const format=/[^a-zA-Z]/
+            var n = stringArr.length;
+        if(n==null||n==undefined||n==''){
+            throw 'invalid input'
+        }else if (stringArr.some(function (el) { return format.test(el); })) {
+            throw "invalid String array"
+        }else{
+
+            for (let i = 1; i < n; i++) {
+
+                temp = stringArr[i];
+                var j = i;
+                while (j > 0 && stringArr[j] < stringArr[j - 1]) {
+                    stringArr[j] = stringArr[j - 1];
+                    j--;
+                    stringArr[j] = temp;
+                }
+
+            }
+            console.log(stringArr);
+        }    
+    }catch(error){
+        console.log('invalid input');
+        console.log('Enter input again :: ');
+        var arrSize;
+        var StringArr=[]
+        console.log("Enter Size Of Array :: ");
+        arrSize=this.input()
+
+        console.log("Enter "+arrSize+" Elements");
+
+        for(let i=0;i<arrSize;i++){
+            console.log("Enter "+i+" Element ::");
+            StringArr[i]=this.input();
+        }
+
+        // console.log('Sorted Array using Insertion Sort Is :: ')
+        this.insertionSortString(StringArr);
+                
+        return error
+        
+        
+    }        
+},
 
     /************************ Binary Search For Integer Value************ */
     /*
