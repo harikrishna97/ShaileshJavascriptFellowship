@@ -13,11 +13,26 @@ module.exports = {
     },
     /*********************** Number Of Binary Search Tree **************************/
     numberOfBinarySearchTree(number) {
-        var numerator = this.findFatorial(2 * number)
-        var denominator = this.findFatorial(number + 1) * this.findFatorial(number)
+        try{
+            const format=/[^0-9]/
+            if(format.test(number)||number==null||number==undefined||number==''){
+                throw 'invalid input'
+            }else{
+            var numerator = this.findFatorial(2 * number)
+            var denominator = this.findFatorial(number + 1) * this.findFatorial(number)
 
-        var numberOfTrees = numerator / denominator;
-        return numberOfTrees
+            var numberOfTrees = numerator / denominator;
+            return numberOfTrees
+            }
+        }catch(error){
+
+            console.log(error);
+            console.log('Enter Number Again');
+            var number=this.input()
+            this.numberOfBinarySearchTree(number)
+            return error
+            
+        }    
 
     },
 
@@ -154,7 +169,7 @@ module.exports = {
                     if (((i + d) % 7 == 0) || i == days[month]) {
                         console.log();
                     }
-                    if (((i + parseInt(d)) % 7 == 0)) {
+                    if (((i + d)) % 7 == 0) {
                         console.log()
                     }
 
@@ -195,10 +210,10 @@ module.exports = {
     */
     day(month, year) {
         let d = 1;
-        let y1 = year - (14 - month) / 12;
-        let x = y1 + (y1 / 4) - (y1 / 100) + (y1 / 400);
-        let m1 = month + (12 * ((14 - month) / 12)) - 2;
-        let d1 = (d + x + (31 * m1) / 12) % 7;
+        let y1 = year - Math.floor((14 - month) / 12);
+        let x = y1 + Math.floor((y1 / 4)) - Math.floor((y1 / 100)) + Math.floor((y1 / 400));
+        let m1 = month + Math.floor((12 * ((14 - month) / 12))) - 2;
+        let d1 = Math.floor((d + x + (31 * m1) / 12) % 7);
         return d1;
     },
 
@@ -244,6 +259,7 @@ module.exports = {
 
         }
     },
+
     orderListFun(searchKey) {
         var intData = Utility.inputFromFile('orderList.txt');
 
@@ -312,6 +328,22 @@ module.exports = {
 
        
 
-    }
+    },
+
+    //input from file
+    inputFromFile(file){
+        const fis=require('fs')
+        var data=fis.readFileSync(file,'utf8')
+        var stringData=data.trim().split(' ')
+
+        return stringData;
+    },
+
+    //write to file
+    outputToFile(file,content){
+        const fos=require('fs')
+        fos.writeFileSync(file,content,'utf8')
+
+    },
 
 }//module.exports

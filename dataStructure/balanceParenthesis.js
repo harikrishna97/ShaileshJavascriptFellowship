@@ -17,7 +17,7 @@ console.log('Enter Arithmatic Expression :: ');
 var string=Utility.input()
 checkForBalanceParenthiesis(string);
 
-//var string= '((5+6)*(7+8)/(4+3)*(5+6)*(7+8)/)4+3)('
+// var string= '((5+6)*(7+8)/(4+3)*(5+6)*(7+8)/)4+3)'
 
 function checkForBalanceParenthiesis(string){
     try{

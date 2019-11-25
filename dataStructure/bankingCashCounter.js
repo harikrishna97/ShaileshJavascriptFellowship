@@ -13,14 +13,20 @@
 
 const Utility=require('../utility/queue')
 var queue=new Utility.Queue;
-bankingCashCounter();
-
-function bankingCashCounter(){
-    try{
-        var amount=10000
-        console.log('Enter Number Of Peoples Waiting in the Queue :: ');
+console.log('Enter Number Of Peoples Waiting in the Queue :: ');
         var nPeople=Utility.input()
-        Utility.val
+bankingCashCounter(nPeople);
+
+function bankingCashCounter(nPeople){
+    try{
+        const format=/[^0-9]/
+        if(format.test(nPeople)||nPeople==null||nPeople==undefined||nPeople==''){
+            throw 'invalid input'
+        }else{
+        var amount=10000
+        
+
+        // Utility.val
         for(let i=0;i<nPeople;i++){
             console.log('Enter Customer Name :: ');
             var custName=Utility.input()
@@ -87,9 +93,13 @@ function bankingCashCounter(){
                 }
             }while(ch<0&&ch>=2);
         }
-        
+    }
     } catch(error){
-
+        console.log(error);
+        
+        console.log('Enter Number Of Peoples Waiting in the Queue :: ');
+        var nPeople=Utility.input()
+        bankingCashCounter(nPeople);
     return error
     }
 }    

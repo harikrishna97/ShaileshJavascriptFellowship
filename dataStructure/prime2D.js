@@ -21,8 +21,8 @@ function primes() {
             start = start + 100;
             end = end + 100;
         }
-    } catch (e) {
-        console.log(e.message);
+    }catch (e) {
+        console.log(e);
     }
 
 }

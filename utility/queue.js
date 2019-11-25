@@ -8,6 +8,7 @@ class Node{
     @return:size
     */
     constructor(data){
+        this.data=data
         this.next=null;
     }
  }
@@ -47,7 +48,7 @@ class Node{
     *@param: data
     *@return:void
     */
-    enqueue( data) {
+    enqueue(data) {
 		var temp=new Node(data);
 		
 		if(this.isEmpty()) {
