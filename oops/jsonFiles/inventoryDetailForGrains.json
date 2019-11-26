@@ -1,0 +1,67 @@
+{
+
+    "Rice":[
+        {"Name":"Basmati",
+            "Weight":40,
+            "Price":50
+
+        },
+        {"Name":"Colam",
+            "Weight":40,
+            "Price":60
+
+        },
+        {"Name":"Indrayani",
+            "Weight":40,
+            "Price":55
+
+        }
+
+    ],
+
+
+    "Pulses":[
+        {"Name":"Rajama",
+            "Weight":4,
+            "Price":70
+
+        },
+        {"Name":"ToorDal",
+            "Weight":6,
+            "Price":60
+
+        },
+        {"Name":"ChanaDal",
+            "Weight":4,
+            "Price":75
+
+        }
+
+    ],
+
+
+    "Wheats":[
+        {"Name":"Sharbati",
+            "Weight":5,
+            "Price":100
+
+        },
+        {"Name":"Khapali",
+            "Weight":8,
+            "Price":150
+
+        },
+        {"Name":"Saboot",
+            "Weight":3,
+            "Price":120
+
+        }
+
+    ]
+
+    
+    
+
+
+
+}
