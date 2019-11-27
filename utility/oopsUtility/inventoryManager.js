@@ -1,4 +1,5 @@
 const fis=require('fs')
+const fos=require('fs')
 
 class Inventory{
 
@@ -6,6 +7,10 @@ class Inventory{
         this.Name=name
         this.Weight=weight
         this.Price=price
+    }
+
+    total(weight,price){
+        return weight*price
     }
     // set name(name){
     //     this.Name=name
@@ -27,10 +32,9 @@ class Inventory{
 class Rice extends Inventory{
     
     
-    constructor(name,weight,price,id){
+    constructor(name,weight,price){
         super(name,weight,price);
-        this.Id=id
-        console.log('Id :: '+id);
+        this.total(weight,price)
         
         
     }
@@ -39,11 +43,14 @@ class Rice extends Inventory{
 class Pulses extends Inventory{
     constructor(name,weight,price){
         super(name,weight,price);
+        this.total(weight,price)
     }
+    
 }
 class Wheats extends Inventory{
     constructor(name,weight,price){
         super(name,weight,price);
+        this.total(weight,price)
     }
 
 
@@ -54,6 +61,8 @@ class Wheats extends Inventory{
 module.exports={
     
     Rice,
+    Pulses,
+    Wheats,
 
     //input from file
     inputFromFile(file){
@@ -66,7 +75,6 @@ module.exports={
 
     //write to file
     outputToFile(file,content){
-        const fos=require('fs')
         fos.writeFileSync(file,content,'utf8')
 
     },

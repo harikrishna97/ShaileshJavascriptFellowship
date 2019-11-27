@@ -1,0 +1,8 @@
+{
+   "Stock":
+   [
+       {"StockName":"BL","NumberOfShares":10,"SharePrice":2500},
+       {"StockName":"CAP","NumberOfShares":5,"SharePrice":3000},
+       {"StockName":"LS","NumberOfShares":8,"SharePrice":2000}
+   ] 
+}           
