@@ -15,3 +15,43 @@
  * @version node v8.10.0    npm 3.5.2
  * @since  26/11/2019 
  *****************************************************************************/
+const oopsUtility=require('../utility/oopsUtility/addressBookUtility')
+
+ const address=oopsUtility.inputFromFile('./jsonFiles/addressBookData.json')
+ const jsonObj=JSON.parse(address)
+// console.log(data);
+
+const AddressObj=new oopsUtility.Address;
+do{
+   console.log('************** Address Book Details ****************');
+   console.log('1. Add New Person \n2. Show Details Of Address Book \n3. Update Informateion \n4. Delete Person');
+   console.log('Enter Your Choice :: ');
+   let choice=parseInt(oopsUtility.input())
+
+   switch(choice){
+
+      case 1: AddressObj.createProfile(address); break;
+      case 2: AddressObj.displayDetail(); break;
+      case 3: AddressObj.updateProfile(); break;
+      case 4: AddressObj.deleteDetail(); break;
+      case 5: console.log('Thank You..'); break;
+
+      //  default:console.log('Enter Valid Choice ');break;
+      
+      
+   }
+ 
+}while(checkChoice=(choice)=>{
+
+   if(choice >5||choice <1||choice==null||choice ==''||choice ==undefined){
+      console.log('Enter valid Choice only');
+      
+      return true
+   }
+   
+      return false;
+   
+});
+ 
+ 
+

@@ -23,13 +23,13 @@ console.log(jsonObj);
 
 for(let i=0;i<jsonObj.Stock.length;i++){
 var shareName  =jsonObj.Stock[i].StockName;
-var nuumberOfShares  =jsonObj.Stock[i].NumberOfShares;
+var numberOfShares  =jsonObj.Stock[i].NumberOfShares;
 var sharePrice  =jsonObj.Stock[i].SharePrice;
 
-let stockObject=new oopsUtility.Stock(shareName,nuumberOfShares,sharePrice)
+let stockObject=new oopsUtility.Stock(shareName,numberOfShares,sharePrice)
 var total=stockObject.total()
-console.log('Name :: '+shareName+'\nNumber Of Shares :: '+nuumberOfShares+'\nShare Price :: '+sharePrice)
-// console.log('Price Of one Share is :: '+sharePrice);
+console.log('Name :: '+shareName+'\nNumber Of Shares :: '+numberOfShares+'\nShare Price :: '+sharePrice)
+ console.log('Price Of one Share is :: '+sharePrice);
 console.log('\nTotal Price of Stock is :: '+total);
 
 

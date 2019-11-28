@@ -1,29 +1,32 @@
 {
-
-"Person":[{"FirstName":"Hari",
-           "LastName":"Das",
-           "Address":[{"Street":"MG Road","City":"Nashik","State":"Maharashtra","Nation":"India","ZipCode":422305,"Phone":9604702328}]
-         },
-
-         {"FirstName":"Krishna",
-            "LastName":"Borase",
-            "Address":[{"Street":"KC Road","City":"Pune","State":"Maharashtra","Nation":"India","ZipCode":412305,"Phone":9579049946}]
-          }]   
-         
-
+  "Person": [
+    {
+      "FirstName": "Hari",
+      "LastName": "Das",
+      "Address": [
+        {
+          "Street": "MG Road",
+          "City": "Nashik",
+          "State": "Maharashtra",
+          "Nationality": "India",
+          "ZipCode": 422305,
+          "Phone": 9604702328
+        }
+      ]
+    },
+    {
+      "FirstName": "Krishna",
+      "LastName": "Borase",
+      "Address": [
+        {
+          "Street": "KC Road",
+          "City": "Pune",
+          "State": "Maharashtra",
+          "Nationality": "India",
+          "ZipCode": 412305,
+          "Phone": 9579049946
+        }
+      ]
+    }
+  ]
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

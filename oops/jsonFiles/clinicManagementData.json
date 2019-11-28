@@ -1,0 +1,110 @@
+{
+    "Doctor": [
+        {
+            "name": "Dr.Dinnesh More",
+            "Id": "101",
+            "specialisation": "Cardiologist",
+            "availability": "AM"
+        },
+        {
+            "name": "Dr.Subash Chauhan",
+            "Id": "201",
+            "specialisation": "Nerologist",
+            "availability": "PM"
+        },
+        {
+            "name": "Dr.Simran Kadu",
+            "Id": "301",
+            "specialisation": "Ophthalmolo ",
+            "availability": "Both"
+        },
+        {
+            "name": "Dr.Sejal Gaikwad",
+            "Id": "401",
+            "specialisation": "Dynacologist",
+            "availability": "AM"
+        }
+    ],
+    "Patient": [
+        {
+            "name": "aaa",
+            "Id": "11",
+            "phoneNumber": "7874545455",
+            "age": 45,
+            "appointmentFrom": "Dr.bnm",
+            "onTheDayOf": 28
+        },
+        {
+            "name": "abc",
+            "Id": "22",
+            "phoneNumber": "2563148595",
+            "age": 20,
+            "appointmentFrom": "'Dr.Kanchana",
+            "onTheDayOf": 20
+        },
+        {
+            "Name": "abcd",
+            "Id": 82266,
+            "PhoneNumber": 5236987415,
+            "Age": 23,
+            "AppointmentFrom": "Dr.narayan panji",
+            "OnTheDayOf": 22
+        },
+        {
+            "Name": "xc",
+            "Id": 71174,
+            "PhoneNumber": 1236589475,
+            "Age": 23,
+            "AppointmentFrom": "Dr.narayan panji",
+            "OnTheDayOf": 22
+        },
+        {
+            "Name": "dxc",
+            "Id": 6234,
+            "PhoneNumber": 2301450268,
+            "Age": 23,
+            "AppointmentFrom": "Dr.narayan panji",
+            "OnTheDayOf": 22
+        },
+        {
+            "Name": "fgb",
+            "Id": 47277,
+            "PhoneNumber": 2035478413,
+            "Age": 12,
+            "AppointmentFrom": "Dr.narayan panji",
+            "OnTheDayOf": 23
+        },
+        {
+            "Name": "sejal",
+            "Id": 2428,
+            "PhoneNumber": 9987654321,
+            "Age": 23,
+            "AppointmentFrom": "Dr.Kanchana",
+            "OnTheDayOf": 7
+        },
+        {
+            "Name": "komal",
+            "Id": 49317,
+            "PhoneNumber": 1234567890,
+            "Age": 45,
+            "AppointmentFrom": "Dr.jon desoza",
+            "OnTheDayOf": 7
+        },
+        {
+            "Name": "jhon",
+            "Id": 48950,
+            "PhoneNumber": 9898765654,
+            "Age": 45,
+            "AppointmentFrom": "Dr.narayan panji",
+            "OnTheDayOf": 8
+        },
+        {
+            "Name": "Ganu",
+            "Id": 88245,
+            "PhoneNumber": 9876556789,
+            "Age": 45,
+            "AppointmentFrom": "Dr.Simran Kadu",
+            "OnTheDayOf": 12
+        }
+    ]
+}
