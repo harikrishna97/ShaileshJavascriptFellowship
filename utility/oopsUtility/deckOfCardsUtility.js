@@ -2,7 +2,7 @@
 
 module.exports={
     
-    deckOfCards=()=>{
+    deckOfCards(){
 
     let suit=['Heart','Diamond','Spade','Club']
     let ranks=[2,3,4,5,6,7,8,9,10,'Ace','Jack','Queen','King']
@@ -32,7 +32,7 @@ module.exports={
 
 
         var temp=deck[randomValue]
-        deck[randomValue]=
+        deck[randomValue]= deck[i]
         deck[i]=temp
 
     }

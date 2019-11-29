@@ -1,0 +1,34 @@
+{
+    "Customer": [
+        {
+            "Name": "Shailesh",
+            "Id": 10,
+            "NumberOfShare": 20
+        },
+        {
+            "Name": "Hari",
+            "Id": 12,
+            "NumberOfShare": 25
+        },
+        {
+            "Name": "Krishna",
+            "Id": 43,
+            "NumberOfShare": 50
+        },
+        {
+            "Name": "Haresh",
+            "Id": 4,
+            "NumberOfShare": "89"
+        },
+        {
+            "Name": "Harsha",
+            "Id": 89,
+            "NumberOfShare": "0"
+        },
+        {
+            "Name": "MyName",
+            "Id": 69,
+            "NumberOfShare": "29"
+        }
+    ]
+}

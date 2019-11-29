@@ -1,0 +1,28 @@
+{
+    "Company": [
+        {
+            "Name": "TCS",
+            "Symbol": "C",
+            "Share": 25,
+            "Price": 200
+        },
+        {
+            "Name": "IBM",
+            "Symbol": "I",
+            "Share": 240,
+            "Price": 300
+        },
+        {
+            "Name": "Wipro",
+            "Symbol": "W",
+            "Share": 250,
+            "Price": 400
+        },
+        {
+            "Name": "LNT",
+            "Symbol": "L",
+            "Share": 75,
+            "Price": 2000
+        }
+    ]
+}

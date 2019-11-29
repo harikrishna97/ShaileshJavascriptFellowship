@@ -30,9 +30,9 @@ do{
 
    switch(choice){
 
-      case 1: AddressObj.createProfile(address); break;
-      case 2: AddressObj.displayDetail(); break;
-      case 3: AddressObj.updateProfile(); break;
+      case 1: AddressObj.createProfile(jsonObj); break;
+      case 2: AddressObj.displayDetail(jsonObj); break;
+      case 3: AddressObj.updateProfile(jsonObj); break;
       case 4: AddressObj.deleteDetail(); break;
       case 5: console.log('Thank You..'); break;
 

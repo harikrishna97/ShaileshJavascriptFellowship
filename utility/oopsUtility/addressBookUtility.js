@@ -2,14 +2,16 @@
  const thisObj=require('../dsUtility')
 const readline=require('readline-sync')
 var file = require('fs')
-
-
+nameRestriction = /[a-z]/g;
+contactRestriction = /[0-9]/g;
 class Address {
-    constructor(address) {
-        this.address = address;
+    constructor() {
+        
     }
     
         createProfile(address){
+            console.log(address);
+            
             console.log('Fill Your Detials :: ');
             do{
                 console.log('Enter Your First Name :: ');
@@ -26,13 +28,19 @@ class Address {
                 console.log('Enter Your Street Name :: ');
                 var street=thisObj.input().trim()
                 }while(this.checkString(street))
+
             do{
-            console.log('Enter Your City Number :: ');
+            console.log('Enter Your City Name :: ');
             var city=thisObj.input().trim()
             }while(this.checkString(city))
 
             do{
-                console.log('Enter Your Nationality Number :: ');
+                console.log('Enter Your State Name :: ');
+                var state=thisObj.input().trim()
+                }while(this.checkString(state))
+
+            do{
+                console.log('Enter Your Nationality :: ');
                 var nationality=thisObj.input().trim()
             }while(this.checkString(nationality))
                 
@@ -62,10 +70,14 @@ class Address {
                             
             }
         });
-        file.writeFile('./jsonFiles/addressBookData.json', JSON.stringify(address), 'utf-8', function (err) {
+        file.writeFileSync('../oops/jsonFiles/addressBookData.json', JSON.stringify(address), 'utf-8', function (err) {
             if (err) throw err
             console.log('Done!');
         })
+
+        console.log("Your Information As Per Our Record IS:\n \r Name: " + firstName + "\n \r Last Name: " + lastName)
+        console.log("Address: " + street + "," + city + ',' + state + ',' + nationality + ',' + zipCode)
+        console.log("Phone Number is: " + phoneNum)
     
     }
          
@@ -101,6 +113,8 @@ class Address {
             }
     
         }
+
+
         updateProfile(address) {
             var temp = -1;
             if (address.Person.length > 0) {
@@ -112,7 +126,7 @@ class Address {
                 console.log()
                 console.log("**Welcome**")
                 console.log()
-                var name = read.question("Enter the Name of the Profile: ")
+                var name = readline.question("Enter the Name of the Profile: ")
                 for (var k = 0; k < address.Person.length; k++) {
                     if (name == address.Person[k].Name) {
                         console.log("What Do you Want to do ? ")
@@ -122,7 +136,7 @@ class Address {
                         console.log("4 : Save")
                         console.log("5 : Exit")
     
-                        var key = read.question("Enter your Choice: ")
+                        var key = readline.question("Enter your Choice: ")
                         switch (parseInt(key)) {
                             case 1:
                                 /**
@@ -136,14 +150,14 @@ class Address {
                                 console.log("5 : Zip Code")
                                 console.log("6 : Phone Number")
     
-                                var choice = read.question("Enter Your Choice: ")
+                                var choice = readline.question("Enter Your Choice: ")
                                 switch (parseInt(choice)) {
                                     case 1:
                                         //Street Update
-                                        var sUpdate = read.question("Enter New Street: ")
+                                        var sUpdate = readline.question("Enter New Street: ")
                                         while (nameRestriction.test(sUpdate) == false) {
                                             console.log("No Special characters ..Invalid Street! ");
-                                            sUpdate = read.question(" ReEnter New Street: ")
+                                            sUpdate = readline.question(" ReEnter New Street: ")
                                         }
                                         var obj = {
                                             "Name": address.Person[k].Name,
@@ -162,10 +176,10 @@ class Address {
                                         break;
                                     case 2:
                                         //City Update
-                                        var cUpdate = read.question(" Enter New City : ")
+                                        var cUpdate = readline.question(" Enter New City : ")
                                         while (nameRestriction.test(cUpdate) == false) {
                                             console.log("No Special characters ..Invalid City! ");
-                                            cUpdate = read.question(" ReEnter New City: ")
+                                            cUpdate = readline.question(" ReEnter New City: ")
                                         }
                                         var obj = {
                                             "Name": address.Person[k].Name,
@@ -185,11 +199,11 @@ class Address {
                                         break;
                                     //State Update
                                     case 3:
-                                        var stUpadate = read.question("Enter the New State: ")
+                                        var stUpadate = readline.question("Enter the New State: ")
                                         while (nameRestriction.test(stUpadat) == false) 
                                         {
                                             console.log("No Special characters ..Invalid State! ");
-                                            stUpadat = read.question("ReEnter New State: ")
+                                            stUpadat = readline.question("ReEnter New State: ")
                                         }
                                         var obj = 
                                         {
@@ -212,11 +226,11 @@ class Address {
                                     //Nationality Update
     
                                     case 4:
-                                        var nUpadte = read.question("Enter New Nationality: ")
+                                        var nUpadte = readline.question("Enter New Nationality: ")
                                         while (nameRestriction.test(nUpadte) == false) 
                                         {
                                             console.log("No Special characters ..Invalid Nationality! ");
-                                            nUpadte = read.question(" ReEnter New Nationality: ")
+                                            nUpadte = readline.question(" ReEnter New Nationality: ")
                                         }
                                         var obj = 
                                         {
@@ -239,10 +253,10 @@ class Address {
     
                                     //Zip Code Update
                                     case 5:
-                                        var zUpdate = read.question("Enter New Zip Code: ")
+                                        var zUpdate = readline.question("Enter New Zip Code: ")
                                         while(contactRestriction.test(zUpdate) == false && zip.length != 6) {
                                             console.log("Enter 6 digit Number..Invalid Zip Code! ");
-                                            zUpdate = read.question("ReEnter New Zip Code: ")
+                                            zUpdate = readline.question("ReEnter New Zip Code: ")
                                         }
                                         var obj = {
                                             "Name": address.Person[k].Name,
@@ -264,11 +278,11 @@ class Address {
                                     //Phone number update
     
                                     case 6:
-                                        var pUpdate = read.question("Enter New Phone Number: ")
+                                        var pUpdate = readline.question("Enter New Phone Number: ")
                                         while (pUpdate > 9999999999 || pUpdate < 999999999) 
                                         {
                                             console.log("Enter 10 digit Phone Number ..Invalid Name! ");
-                                            pUpdate = read.question("ReEnter New Phone Number: ")
+                                            pUpdate = readline.question("ReEnter New Phone Number: ")
                                         }
                                         var obj = {
                                             "Name": address.Person[k].Name,
@@ -286,7 +300,7 @@ class Address {
                                         }
                                         address.Person[k] = obj;
                                         save()
-                                        file.writeFile('AddressBook.json', JSON.stringify(address), 'utf-8');
+                                        file.writeFileSync('../oops/jsonFiles/addressBookData.json', JSON.stringify(address), 'utf-8');
                                         break;
     
                                     case 7:
@@ -300,7 +314,7 @@ class Address {
                              * Delete Index
                              */
                             case 2:
-                                var update = read.question("Enter the Name which You want to Delete: ")
+                                var update = readline.question("Enter the Name which You want to Delete: ")
                                 for (let i = 0; i < address.Person.length; i++) {
                                     if (address.Person[i].Name == update) {
                                         var index = address.Person.indexOf(address.Person[i])
@@ -341,7 +355,7 @@ class Address {
                              */
                             case 4:
                                 function save() {
-                                    file.writeFile('AddressBook.json', JSON.stringify(address), 'utf-8', function (err) {
+                                    file.writeFileSync('../oops/jsonFiles/addressBookData.json', JSON.stringify(address), 'utf-8', function (err) {
                                         if (err) throw err
                                         console.log('File Saved!!')
                                     })
@@ -386,7 +400,7 @@ class Address {
    //
    deleteDetail(address) 
    {
-       var update = read.question("Enter the Name which You want to Delete: ")
+       var update = readline.question("Enter the Name which You want to Delete: ")
        for (let i = 0; i < address.Person.length; i++) 
        {
            if (address.Person[i].Name == update) 

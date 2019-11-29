@@ -215,7 +215,7 @@ while (ans != 4) {
             "OnTheDayOf": day
 
         })
-        fileStream.writeFileSync('ClinicManagement.json', JSON.stringify(object))
+        fileStream.writeFileSync('../opps/jsonFiles/clinicManagementData.json', JSON.stringify(object))
         console.log("Your Appointment is Confirmed On  : " + day)
 
     }
