@@ -20,6 +20,8 @@
  *****************************************************************************/
 const Utility=require('../utility/oopsUtility/regexUtility')
 
+const Obj=new Utility.RegExClass;
+
 const TEMPLATE=Utility.inputFromFile('regexTEMPLATE.txt','utf8')
 
 // console.log(TEMPLATE);
@@ -31,7 +33,7 @@ do{
 //  name=/<<name>>/
 
 do{
-console.log('Enter Your Last Name :: ');
+console.log('Enter Your Full Name :: ');
 var lastName=Utility.input().trim()
 }while(checkString(lastName))
 do{
@@ -43,7 +45,7 @@ var date =new Date();
 var currentDate=date.getDay()+'/'+date.getMonth()+'/'+date.getFullYear()
 // console.log(currentDate);
 
-var result=Utility.replaceRegex(firstName,lastName,mobile,currentDate,TEMPLATE);
+var result=Obj.replaceRegex(firstName,lastName,mobile,currentDate,TEMPLATE);
 console.log(result);
 
 function checkMobile(mobile){

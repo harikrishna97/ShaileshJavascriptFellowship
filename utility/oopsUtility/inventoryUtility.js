@@ -1,6 +1,8 @@
-class InventoryClass{
-    constructor(){
 
+
+class InventoryClass{
+    constructor(Obj){
+        this.Obj=Obj;
     }
 
     input() {
@@ -16,6 +18,6 @@ class InventoryClass{
 
 }
 
-moodule.exports={
+module.exports={
     InventoryClass,
 }

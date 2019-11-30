@@ -22,8 +22,13 @@ stock()
  function stock(){
 
     console.log('******************** Stock Account *****************');
-    console.log('\n1. Create Account\n2. Buy Shares\n3. Sell Shares\n4. Print Details\n5.EXIT\nEnter Your Choice :: ');
+    console.log('\n1. Create Account\n2. Buy Shares\n3. Sell Shares\n4. Print Details\n5. EXIT\nEnter Your Choice :: ');
     const choice=parseInt(StockObj.input())
+    while(contactRestriction.Test(choice)==false)
+    {
+        console.log('Invalid /input');
+        choice=parseInt(StockObj.input())
+    }
     
     switch(choice){
 

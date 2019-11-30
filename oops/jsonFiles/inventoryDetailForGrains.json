@@ -22,17 +22,17 @@
 
     "Pulses":[
         {"Name":"Rajama",
-            "Weight":4,
+            "Weight":40,
             "Price":70
 
         },
         {"Name":"ToorDal",
-            "Weight":6,
+            "Weight":60,
             "Price":60
 
         },
         {"Name":"ChanaDal",
-            "Weight":4,
+            "Weight":40,
             "Price":75
 
         }
@@ -42,17 +42,17 @@
 
     "Wheats":[
         {"Name":"Sharbati",
-            "Weight":5,
+            "Weight":56,
             "Price":100
 
         },
         {"Name":"Khapali",
-            "Weight":8,
+            "Weight":87,
             "Price":150
 
         },
         {"Name":"Saboot",
-            "Weight":3,
+            "Weight":39,
             "Price":120
 
         }
