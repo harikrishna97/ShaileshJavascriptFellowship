@@ -211,7 +211,7 @@ module.exports = {
     day(month, year) {
         let d = 1;
         let y1 = year - Math.floor((14 - month) / 12);
-        let x = y1 + Math.floor((y1 / 4)) - Math.floor((y1 / 100)) + Math.floor((y1 / 400));
+        let x = y1 + Math.floor((y1 / 4)) - Math.floor((y1 / 100)) + (y1 / 400);
         let m1 = month + Math.floor((12 * ((14 - month) / 12))) - 2;
         let d1 = Math.floor((d + x + (31 * m1) / 12) % 7);
         return d1;

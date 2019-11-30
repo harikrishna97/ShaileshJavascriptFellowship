@@ -16,13 +16,16 @@
  * @since  26/11/2019 
  *****************************************************************************/
 
-const oopsUtility=require('../utility/oopsUtility/inventoryManager')
+const oopsUtility=require('../utility/oopsUtility/inventoryUtility')
 
-const data=oopsUtility.inputFromFile('./jsonFiles/inventoryDetailForGrains.json')
+const file=require('fs')
+const data=readFilSync('./jsonFiles/inventoryDetailForGrains.json')
 const jsonObj=JSON.parse(data)
 inventory(jsonObj);
+const UtilityData=require('../utility/oopsUtility/inventoryUtility.js')
+const Utility=new UtilityData.In;
 function inventory(jsonObj){
-
+    
         //Rice Verieties    
         console.log('...............................................................................');  
         console.log('\t\t\tRice Verieties\n ');
@@ -84,12 +87,16 @@ function inventory(jsonObj){
             console.log('\tTotal Price :: '+total);
             
         }
+}    
         console.log('...............................................................................');  
 
+        console.log('\n1. Rise\t\t2. Wheat\t3. Pulses\n');
+        
         console.log('Enter What Do You Want To Purchase :: ');
+        // var choice=
         
 
-}
+
 
 
 

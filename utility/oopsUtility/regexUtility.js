@@ -9,7 +9,7 @@ module.exports={
     *@return:input
     */
    input() {
-const readline = require('readline-sync');
+    const readline = require('readline-sync');
     let input = readline.question("");
     return input;
 
