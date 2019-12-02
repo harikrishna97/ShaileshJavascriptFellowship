@@ -80,7 +80,8 @@ class Node{
 		 }
 		
 		  this.size--; 
-		  console.log('Data '+data+' deleted sucessfully');
+        //   console.log('Data '+data+' deleted sucessfully');
+        return data;
     }
     /*
     *@description: function to display all element from the Queue 

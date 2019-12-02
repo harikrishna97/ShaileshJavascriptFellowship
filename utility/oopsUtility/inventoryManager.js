@@ -4,12 +4,14 @@ const fos=require('fs')
 class Inventory{
 
     constructor(name,weight,price){
+
         this.Name=name
         this.Weight=weight
         this.Price=price
     }
 
     total(weight,price){
+
         return weight*price
     }
     // set name(name){
@@ -29,10 +31,12 @@ class Inventory{
     // }
 }
 
+//class For Rice Extends Inventory
 class Rice extends Inventory{
     
     
     constructor(name,weight,price){
+
         super(name,weight,price);
         this.total(weight,price)
         
@@ -40,15 +44,21 @@ class Rice extends Inventory{
     }
 }
 
+//class For Pulses Extends Inventory
 class Pulses extends Inventory{
+
     constructor(name,weight,price){
+
         super(name,weight,price);
         this.total(weight,price)
     }
     
 }
+//class For Wheats Extends Inventory
 class Wheats extends Inventory{
+
     constructor(name,weight,price){
+        
         super(name,weight,price);
         this.total(weight,price)
     }
@@ -79,8 +89,6 @@ module.exports={
 
     },
 
-    multiplyTwoValues(a,b){
-        return a*b
-    }
+    
     
 }

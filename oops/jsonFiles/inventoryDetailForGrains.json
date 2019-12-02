@@ -1,67 +1,54 @@
 {
-
-    "Rice":[
-        {"Name":"Basmati",
-            "Weight":40,
-            "Price":50
-
+    "Rice": [
+        {
+            "Name": "Basmati",
+            "Weight": 40,
+            "Price": 50
         },
-        {"Name":"Colam",
-            "Weight":40,
-            "Price":60
-
+        {
+            "Name": "Colam",
+            "Weight": 40,
+            "Price": 60
         },
-        {"Name":"Indrayani",
-            "Weight":40,
-            "Price":55
-
+        {
+            "Name": "Indrayani",
+            "Weight": 40,
+            "Price": 55
         }
-
+        
     ],
-
-
-    "Pulses":[
-        {"Name":"Rajama",
-            "Weight":40,
-            "Price":70
-
+    "Pulses": [
+        {
+            "Name": "Rajama",
+            "Weight": 40,
+            "Price": 70
         },
-        {"Name":"ToorDal",
-            "Weight":60,
-            "Price":60
-
+        {
+            "Name": "ToorDal",
+            "Weight": 60,
+            "Price": 60
         },
-        {"Name":"ChanaDal",
-            "Weight":40,
-            "Price":75
-
+        {
+            "Name": "ChanaDal",
+            "Weight": 40,
+            "Price": 75
         }
-
     ],
-
-
-    "Wheats":[
-        {"Name":"Sharbati",
-            "Weight":56,
-            "Price":100
-
+    "Wheats": [
+        {
+            "Name": "Sharbati",
+            "Weight": 56,
+            "Price": 100
         },
-        {"Name":"Khapali",
-            "Weight":87,
-            "Price":150
-
+        {
+            "Name": "Khapali",
+            "Weight": 87,
+            "Price": 150
         },
-        {"Name":"Saboot",
-            "Weight":39,
-            "Price":120
-
+        {
+            "Name": "Saboot",
+            "Weight": 39,
+            "Price": 120
         }
-
     ]
-
-    
-    
-
-
-
 }

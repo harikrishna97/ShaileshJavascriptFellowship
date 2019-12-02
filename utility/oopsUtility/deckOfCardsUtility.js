@@ -1,4 +1,5 @@
 
+const Utility=require('../queue')
 class DeckOfCards{
     /*
     *@description: constructor to initialize suit and ranks array 
@@ -10,7 +11,7 @@ class DeckOfCards{
         this.ranks=ranks;
     }
     /*
-    *@description: function to elements of Cards 
+    *@description: function to suffle elements of Cards 
     *@param: no parameters
     *@return:deck[]
     */
@@ -22,7 +23,8 @@ class DeckOfCards{
             for(let j=0;j<this.ranks.length;j++){
 
                 
-                deck.push(' '+this.suit[i]+' '+this.ranks[j]+' ')
+                 deck.push(' '+this.suit[i]+' '+this.ranks[j]+' ')
+
             }
         }
 
@@ -53,7 +55,7 @@ class DeckOfCards{
         try{
 
             var deck=[]
-            deck=this.shuffleCards(suit,ranks)
+            deck=this.shuffleCards()
             
             var p=0
             var array=[[],[],[],[]]
@@ -98,12 +100,42 @@ class DeckOfCards{
 
             }
         }catch(error){
+            this.printResult(array);
             console.log(error);
         
         }
     }
 
+    /*
+    *@description: function to distributes 9 cards among 4 playes each using Queue implemented by using linkedlist
+    *@param: no parameters
+    *@return:void
+    */
+    distributesCardsUsingQueueList(){
+
+       var deck=[]
+            var queue = new Utility.Queue;
+             deck=this.shuffleCards()
+            
+            for (let i = 0; i < deck.length; i++) {
+                
+                queue.enqueue(deck[i]);
+            }
+            for (let i = 0; i < 4; i++) {
+                console.log('Player '+(i+1));
+                for (let j = 0; j < 9; j++) {
+                    var array=[]
+                    array[j]=queue.dequeue()
+                    array.sort();
+                    console.log(array);
+                
+                }
+            }
+         }
+
 }
+
+
 
 
 module.exports={

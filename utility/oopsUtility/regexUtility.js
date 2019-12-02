@@ -6,7 +6,9 @@ class RegExClass{
     *@param: 
     *@return:void
     */
-    constructor(){
+    constructor(firstName,lastName){
+        this.firstName='';
+        this.lastName='';
 
     }
 
@@ -17,7 +19,7 @@ class RegExClass{
     */
     replaceRegex(firstName,lastName,mobile,currentDate,TEMPLATE){
 
-        TEMPLATE=TEMPLATE.replace('<<name>>',firstName)
+        TEMPLATE=TEMPLATE.replace(/<<name>>/g,firstName)
         TEMPLATE=TEMPLATE.replace('<<full name>>',lastName)
         TEMPLATE=TEMPLATE.replace('xxxxxxxxxx',mobile)
         TEMPLATE=TEMPLATE.replace('01/01/2016',currentDate)
@@ -43,7 +45,7 @@ module.exports={
     let input = readline.question("");
     return input;
 
-},
+    },
 //input from file
 inputFromFile(file){
         

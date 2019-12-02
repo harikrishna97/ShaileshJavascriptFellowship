@@ -33,36 +33,46 @@ do{
 //  name=/<<name>>/
 
 do{
-console.log('Enter Your Full Name :: ');
+console.log('Enter Your Last Name :: ');
 var lastName=Utility.input().trim()
 }while(checkString(lastName))
 do{
 console.log('Enter Your Phone Number :: ');
-var mobile=Utility.input().trim()
+var mobile=parseInt(Utility.input().trim())
 }while(checkMobile(mobile))
 
 var date =new Date();
 var currentDate=date.getDay()+'/'+date.getMonth()+'/'+date.getFullYear()
 // console.log(currentDate);
 
+
 var result=Obj.replaceRegex(firstName,lastName,mobile,currentDate,TEMPLATE);
 console.log(result);
 
+/*
+*@description: function to Validate Mobile Number
+*@param: mobile
+*@return:true/false
+*/
 function checkMobile(mobile){
     var format=/[^0-9]/
-    if(mobile.length!=10||format.test(mobile)||mobile==null||mobile==''||mobile==undefined){
-        console.log('Not Valid Phone Number\nPhone Number Should contain onnly numbers of length 10');
+    if(mobile>9999999999||mobile<999999999||format.test(mobile)||mobile==NaN||mobile==''||mobile==undefined){
+        console.log('Not Valid Phone Number\nPhone Number Should contain only numbers of length 10');
         return true
     }else{
         return false
     }
 }
 
-
+/*
+*@description: function to String Validation
+*@param: string
+*@return:true/false
+*/
 function checkString(string){
     var format=/[^a-zA-Z]/
     if(format.test(string)||string==null||string==undefined||string==''){
-        console.log('Enter Valid First Name !\nFirst Name Should  Contains Only Characters');
+        console.log('Enter Valid First Name !\n Should  Contains Only Characters');
         return true;
     }
     else{ 

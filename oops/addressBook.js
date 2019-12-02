@@ -1,19 +1,13 @@
 /*****************************************************************************
  *Execution         :   1. default node         cmd> node  addressBook.js  
- * Purpose: 1. JSON Inventory Data Management of Rice, Pulses and Wheats
-                a. Desc ­> Create a JSON file having Inventory Details for Rice, Pulses and Wheats
-                with properties name, weight, price per kg.
-                b. Use Library : Java JSON Library , For IOS JSON Library use
-                NSJSONSerialization for parsing the JSON .
-                c. I/P ­> read in JSON File
-                d. Logic ­> Get JSON Object in Java or NSDictionary in iOS. Create Inventory
-                Object from JSON. Calculate the value for every Inventory.
-                e. O/P ­> Create the JSON from Inventory Object and output the JSON String
- * @file                 : numberOfBST.js  
- * @overview       : Inventory Management System for Grains
+ * Purpose: 1. The software to be designed is a program that can be used to maintain an address book. An address book
+               holds a collection of entries, each recording a person's first and last names, address, city, state, zip, and
+               phone number.
+ * @file                 : addressBook.js  
+ * @overview       : Address Book Implementation 
  * @author  SHAILESH BORASE
  * @version node v8.10.0    npm 3.5.2
- * @since  26/11/2019 
+ * @since  27/11/2019 
  *****************************************************************************/
 const oopsUtility=require('../utility/oopsUtility/addressBookUtility')
 
@@ -21,7 +15,9 @@ const oopsUtility=require('../utility/oopsUtility/addressBookUtility')
  const jsonObj=JSON.parse(address)
 // console.log(data);
 
+//Creating Object Of Address Class
 const AddressObj=new oopsUtility.Address;
+
 do{
    console.log('************** Address Book Details ****************');
    console.log('1. Add New Person \n2. Show Details Of Address Book \n3. Update Informateion \n4. Delete Person');
@@ -44,7 +40,7 @@ do{
 }while(checkChoice=(choice)=>{
 
    if(choice >5||choice <1||choice==null||choice ==''||choice ==undefined){
-      console.log('Enter valid Choice only');
+      console.log('Enter valid Choice only..');
       
       return true
    }

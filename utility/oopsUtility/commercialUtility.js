@@ -2,10 +2,24 @@ var readline = require('readline-sync');
 var file=require('fs')
 
 class StockAccount{
-    constructor(){
+
+    /*
+    @description: constructor of StockAccount class for initialising values 
+    @param: Name,NumberOfShare,Price
+    @return:void
+    */
+    constructor(name,share,price){
+        this.Name=name
+        this.NumberOfShare=share
+        this.Price=price
 
     }
 
+    /*
+    @description: funtion to take Input From User
+    @param: no parameter
+    @return:input
+    */
     input() {
 
         let input = readline.question("");
@@ -13,7 +27,11 @@ class StockAccount{
 
     }
 
-    //Create New Account
+   /*
+    @description: Function to Create New Account 
+    @param: custObj
+    @return:void
+    */
     createAcount(custObj){
         console.log('Enter Your Name :: ');
         var name=this.input()
@@ -38,7 +56,11 @@ class StockAccount{
             console.log(data);
     }
 
-    //Buy Shares
+    /*
+    @description: Function to Buy Shares 
+    @param: custObj,CompObj
+    @return:void
+    */
     buyShares(CustObj,CompObj){
         var flag=false;
 
@@ -120,7 +142,11 @@ class StockAccount{
             }
         }
        
-        //Print Details
+        /*
+        @description: Function to Print Details 
+        @param: custObj,CompObj
+        @return:void
+        */
         printDetails(CustObj,CompObj){
 
             console.log('Customer Shares Details is :: ');
@@ -132,7 +158,11 @@ class StockAccount{
             
         }
 
-        //sell shares
+        /*
+        @description: Function to Sell Shares 
+        @param: custObj,CompObj
+        @return:void
+        */
         sellShares(CustObj,CompObj){
             var flag=false;
 

@@ -1,15 +1,12 @@
 /*****************************************************************************
- *Execution         :   1. default node         cmd> node  inventoryManagementSystem.js  
+ *Execution         :   1. default node         cmd> node  inventorymanagementExtended.js  
  * Purpose: 1. JSON Inventory Data Management of Rice, Pulses and Wheats
-                a. Desc ­> Create a JSON file having Inventory Details for Rice, Pulses and Wheats
-                with properties name, weight, price per kg.
-                b. Use Library : Java JSON Library , For IOS JSON Library use
-                NSJSONSerialization for parsing the JSON .
-                c. I/P ­> read in JSON File
-                d. Logic ­> Get JSON Object in Java or NSDictionary in iOS. Create Inventory
-                Object from JSON. Calculate the value for every Inventory.
-                e. O/P ­> Create the JSON from Inventory Object and output the JSON String
- * @file                 : numberOfBST.js  
+                Desc ­> Extend the above program to Create InventoryManager to manage the
+                Inventory. The Inventory Manager will use InventoryFactory to create Inventory
+                Object from JSON. The InventoryManager will call each Inventory Object in its list
+                to calculate the Inventory Price and then call the Inventory Object to return the
+                JSON String. The main program will be with InventoryManager
+ * @file                 : inventorymanagementExtended.js 
  * @overview       : Inventory Management System for Grains
  * @author  SHAILESH BORASE
  * @version node v8.10.0    npm 3.5.2
@@ -28,6 +25,8 @@ const jsonObj=JSON.parse(data)
 inventory(jsonObj);
 
 const Object=new UtilityData.InventoryClass(jsonObj)
+
+
 function inventory(jsonObj){
     
         //Rice Verieties    
@@ -43,12 +42,12 @@ function inventory(jsonObj){
 
             let inventoryObj=new oopsUtility.Rice(name,weight,price);
             var total=inventoryObj.total(weight,price);
-            console.log('\t\n\t'+name+'\t'+weight+'\t'+price);
+            // console.log('\t\n\t'+name+'\t'+weight+'\t'+price);
             var total=inventoryObj.total(weight,price);
             console.log('\t'+(i+1)+')\n\tName :: '+name+'\n');
             console.log('\tWeight :: '+weight+'\n');
             console.log('\tPrice :: '+price+'\n');
-            console.log('\tTotal Price :: '+total);
+            console.log('\tTotal Price for '+jsonObj.Rice[i]+' :: '+total);
             
         }
 
@@ -92,7 +91,14 @@ function inventory(jsonObj){
             
         }
 }    
-        console.log('...............................................................................');  
+        console.log('...............................................................................'); 
+        function save() {
+            file.writeFileSync('./jsonFiles/inventoryDetailForGrains.json', JSON.stringify(jsonObj), 'utf-8', function (err) {
+                if (err) throw err
+                console.log('File Saved!!')
+            })
+
+        } 
 
         console.log('\n1. Rise\t\t2. Wheat\t3. Pulses\t4. EXIT');
         
@@ -109,21 +115,103 @@ function inventory(jsonObj){
                     console.log('3. '+jsonObj.Rice[2].Name);
                     
                     var choice=parseInt(Object.input())
+                    
                     switch(choice){
+                        
                         case 1:console.log(jsonObj.Rice[0]);
-                               do{
-                                console.log('Enter How Much Kg You Want :: ');
-                                var quantity=Object.input()
-                                if(num>numberOfShare){
-                                console.log('invalid input..\n Number Of Shares Should be less than Company Share..');
-                                    flag=false
-                                }else{
-                                    flag=true
-    
-                                }
-                                
-                            }while(!flag)  
-                                
+                                var quantity;
+                                    do{
+                                        console.log('Enter How Much Kg You Want :: ');
+                                         quantity=Object.input()
+                                        if(quantity>jsonObj.Rice[0].Weight){
+                                            console.log('invalid input..\n Enter again');
+                                            flag=false
+                                        }else{
+                                            flag=true
+            
+                                        }
+                                    
+                                    }while(!flag)  
+                                //changes remainng
+                                    var newWeight=jsonObj.Rice[0].Weight-quantity
+                                    jsonObj.Rice.push(
+                                        {
+                                            "Name":jsonObj.Rice[0].Name,
+                                            "Weight":newWeight,
+                                            "Price":jsonObj.Rice[0].Price
+
+                                        });
+                                        // save()
+
+                                    file.writeFileSync('./jsonFiles/inventoryDetailForGrains.json', JSON.stringify(jsonObj), 'utf-8', function (err) {
+                                        if (err) throw err
+                                    })
+                                        
+
+                                    console.log('Your bill is, Rice Name :: '+jsonObj.Rice[0].Name+'  Quantity :: '+quantity+' Kg is :: '+jsonObj.Rice[0].Price*quantity+' Rupees')
+                                    break;
+                        case 2:console.log(jsonObj.Rice[1]);
+                                    do{
+                                        console.log('Enter How Much Kg You Want :: ');
+                                        var quantity=Object.input()
+                                        if(quantity>jsonObj.Rice[1].Weight){
+                                            console.log('invalid input..\n Enter again');
+                                            flag=false
+                                        }else{
+                                            flag=true
+            
+                                        }
+                                    
+                                    }while(!flag)  
+                                //changes remainng 
+                                var newWeight=jsonObj.Rice[1].Weight-quantity
+                                    jsonObj.Rice.push(
+                                        {
+                                            "Name":jsonObj.Rice[1].Name,
+                                            "Weight":newWeight,
+                                            "Price":jsonObj.Rice[1].Price
+
+                                        });
+                                        // save()
+
+                                    file.writeFileSync('./jsonFiles/inventoryDetailForGrains.json', JSON.stringify(jsonObj), 'utf-8', function (err) {
+                                        if (err) throw err
+                                    })
+                                        
+
+                                    console.log('Your bill is, Rice Name :: '+jsonObj.Rice[1].Name+'  Quantity :: '+quantity+' Kg is :: '+jsonObj.Rice[1].Price*quantity+' Rupees')
+                                break;
+                        case 3:console.log(jsonObj.Rice[2]);
+                                    do{
+                                        console.log('Enter How Much Kg You Want :: ');
+                                        var quantity=Object.input()
+                                        if(quantity>jsonObj.Rice[2].Weight){
+                                            console.log('invalid input..\n Enter again');
+                                            flag=false
+                                        }else{
+                                            flag=true
+            
+                                        }
+                                    
+                                    }while(!flag)  
+                                //changes remainng
+                                var newWeight=jsonObj.Rice[2].Weight-quantity
+                                    jsonObj.Rice.push(
+                                        {
+                                            "Name":jsonObj.Rice[2].Name,
+                                            "Weight":newWeight,
+                                            "Price":jsonObj.Rice[2].Price
+
+                                        });
+                                        // save()
+
+                                    file.writeFileSync('./jsonFiles/inventoryDetailForGrains.json', JSON.stringify(jsonObj), 'utf-8', function (err) {
+                                        if (err) throw err
+                                    })
+                                        
+
+                                    console.log('Your bill is, Rice Name :: '+jsonObj.Rice[2].Name+'  Quantity :: '+quantity+' Kg is :: '+jsonObj.Rice[2].Price*quantity+' Rupees') 
+                                break;
                         
 
                     }
@@ -134,6 +222,58 @@ function inventory(jsonObj){
                     console.log('Enter Wheat Variety You Want To Purchase :: ');
                             
                     console.log(jsonObj.Wheats);
+                    console.log('1. '+jsonObj.Wheats[0].Name);
+                    console.log('2. '+jsonObj.Wheats[1].Name);
+                    console.log('3. '+jsonObj.Wheats[2].Name);
+                    
+                    var choice=parseInt(Object.input())
+                    switch(choice){
+                        case 1:console.log(jsonObj.Wheats[0]);
+                                    do{
+                                        console.log('Enter How Much Kg You Want :: ');
+                                        var quantity=Object.input()
+                                        if(quantity>jsonObj.Wheats[0].Weight){
+                                            console.log('invalid input..\n Enter again');
+                                            flag=false
+                                        }else{
+                                            flag=true
+            
+                                        }
+                                    
+                                    }while(!flag)  
+                                //changes remainng 
+                                break;
+                        case 2:console.log(jsonObj.Wheats[1]);
+                                    do{
+                                        console.log('Enter How Much Kg You Want :: ');
+                                        var quantity=Object.input()
+                                        if(quantity>jsonObj.Wheats[1].Weight){
+                                            console.log('invalid input..\n Enter again');
+                                            flag=false
+                                        }else{
+                                            flag=true
+            
+                                        }
+                                    
+                                    }while(!flag)  
+                                //changes remainng 
+                                break;
+                        case 3:console.log(jsonObj.Wheats[2]);
+                                    do{
+                                        console.log('Enter How Much Kg You Want :: ');
+                                        var quantity=Object.input()
+                                        if(quantity>jsonObj.Wheats[2].Weight){
+                                            console.log('invalid input..\n Enter again');
+                                            flag=false
+                                        }else{
+                                            flag=true
+            
+                                        }
+                                    
+                                    }while(!flag)  
+                                //changes remainng 
+                                break;
+                    }            
                             
                     break;
          
@@ -141,17 +281,74 @@ function inventory(jsonObj){
                     console.log('Enter Pulses Variety You Want To Purchase :: ');
                             
                     console.log(jsonObj.Pulses);
+                    console.log('1. '+jsonObj.Pulses[0].Name);
+                    console.log('2. '+jsonObj.Pulses[1].Name);
+                    console.log('3. '+jsonObj.Pulses[2].Name);
+                    
+                    var choice=parseInt(Object.input())
+                    switch(choice){
+                        case 1:console.log(jsonObj.Pulses[0]);
+                                    do{
+                                        console.log('Enter How Much Kg You Want :: ');
+                                        var quantity=Object.input()
+                                        if(quantity>jsonObj.Pulses[0].Weight){
+                                            console.log('invalid input..\n Enter again');
+                                            flag=false
+                                        }else{
+                                            flag=true
+            
+                                        }
+                                    
+                                    }while(!flag)  
+                                //changes remainng 
+                                break;
+                        case 2:console.log(jsonObj.Pulses[1]);
+                                    do{
+                                        console.log('Enter How Much Kg You Want :: ');
+                                        var quantity=Object.input()
+                                        if(quantity>jsonObj.Pulses[1].Weight){
+                                            console.log('invalid input..\n Enter again');
+                                            flag=false
+                                        }else{
+                                            flag=true
+            
+                                        }
+                                    
+                                    }while(!flag)  
+                                //changes remainng 
+                                break;
+                        case 3:console.log(jsonObj.Pulses[2]);
+                                    do{
+                                        console.log('Enter How Much Kg You Want :: ');
+                                        var quantity=Object.input()
+                                        if(quantity>jsonObj.Pulses[2].Weight){
+                                            console.log('invalid input..\n Enter again');
+                                            flag=false
+                                        }else{
+                                            flag=true
+            
+                                        }
+                                    
+                                    }while(!flag)  
+                                //changes remainng 
+                                break;
+                    }            
                             
                     break;
             case 4: console.log('Thank You For Visiting... ');break;   
 
             default:console.log('Not valid input\nEnter Again :: ');break;
-                
-
-
 
          }
         
+
+         function save() {
+            file.writeFileSync('../oops/jsonFiles/inventoryDetailForGrains.json', JSON.stringify(jsonObj), 'utf-8', function (err) {
+                if (err) throw err
+                console.log('File Saved!!')
+            })
+
+        }
 
 
 

@@ -6,14 +6,17 @@
  * @overview       : Commercial Data Processing
  * @author  SHAILESH BORASE
  * @version node v8.10.0    npm 3.5.2
- * @since  29/11/2019 */
+ * @since  29/11/2019
+ *  *****************************************************************************/
 
 
  const fs=require('fs')
+
 const Utility=require('../utility/oopsUtility/commercialUtility.js')
 var comp=fs.readFileSync('./jsonFiles/company.json','utf8')
  var cust=fs.readFileSync('./jsonFiles/customer.json','utf8')
 
+ //parsing Json to js object
  const CompObj=JSON.parse(comp)
  const CustObj=JSON.parse(cust)
 
@@ -23,8 +26,10 @@ stock()
 
     console.log('******************** Stock Account *****************');
     console.log('\n1. Create Account\n2. Buy Shares\n3. Sell Shares\n4. Print Details\n5. EXIT\nEnter Your Choice :: ');
-    const choice=parseInt(StockObj.input())
-    while(contactRestriction.Test(choice)==false)
+    var choice=parseInt(StockObj.input())
+
+    var format=/[0-9]/g;
+    while(format.test(choice)==false)
     {
         console.log('Invalid /input');
         choice=parseInt(StockObj.input())
