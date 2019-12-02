@@ -1,5 +1,5 @@
 /*****************************************************************************
- *Execution         :   1. default node         cmd> node  inventoryManagementSystem.js  
+ *Execution         :   1. default node         cmd> node  regExDemo.js  
  * Purpose: Desc ­> Read in the following message: Hello <<name>>, We have your full
             name as <<full name>> in our system. your contact number is 91­xxxxxxxxxx.
             Please,let us know in case of any clarification Thank you BridgeLabz 01/01/2016.
@@ -12,7 +12,7 @@
             91­xxxxxxxxxx by your contact number.
             replace any date in the format XX/XX/XXXX by current date.
           d. O/P ­> Print the Modified Message.
- * @file                 : numberOfBST.js  
+ * @file                 : regExDemo.js 
  * @overview       : replace first name last name phone number usinng regex
  * @author  SHAILESH BORASE
  * @version node v8.10.0    npm 3.5.2

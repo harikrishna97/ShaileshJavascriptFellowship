@@ -47,7 +47,7 @@ function inventory(jsonObj){
             console.log('\t'+(i+1)+')\n\tName :: '+name+'\n');
             console.log('\tWeight :: '+weight+'\n');
             console.log('\tPrice :: '+price+'\n');
-            console.log('\tTotal Price for '+jsonObj.Rice[i]+' :: '+total);
+            console.log('\tTotal Price for '+jsonObj.Rice[i].Name+' :: '+total);
             
         }
 
@@ -67,7 +67,7 @@ function inventory(jsonObj){
             console.log('\t'+(i+1)+')\n\tName :: '+name+'\n');
             console.log('\tWeight :: '+weight+'\n');
             console.log('\tPrice :: '+price+'\n'); 
-            console.log('\tTotal Price :: '+total);
+            console.log('\tTotal Price for '+jsonObj.Pulses[i].Name+' :: '+total);
         
         }
 
@@ -87,7 +87,7 @@ function inventory(jsonObj){
             console.log('\t'+(i+1)+')\n\tName :: '+name+'\n');
             console.log('\tWeight :: '+weight+'\n');
             console.log('\tPrice :: '+price+'\n'); 
-            console.log('\tTotal Price :: '+total);
+            console.log('\tTotal Price for '+jsonObj.Wheats[i].Name+' :: '+total);
             
         }
 }    
@@ -134,13 +134,13 @@ function inventory(jsonObj){
                                     }while(!flag)  
                                 //changes remainng
                                     var newWeight=jsonObj.Rice[0].Weight-quantity
-                                    jsonObj.Rice.push(
+                                    jsonObj.Rice[0]=
                                         {
                                             "Name":jsonObj.Rice[0].Name,
                                             "Weight":newWeight,
                                             "Price":jsonObj.Rice[0].Price
 
-                                        });
+                                        };
                                         // save()
 
                                     file.writeFileSync('./jsonFiles/inventoryDetailForGrains.json', JSON.stringify(jsonObj), 'utf-8', function (err) {
@@ -165,13 +165,13 @@ function inventory(jsonObj){
                                     }while(!flag)  
                                 //changes remainng 
                                 var newWeight=jsonObj.Rice[1].Weight-quantity
-                                    jsonObj.Rice.push(
+                                    jsonObj.Rice[1]=
                                         {
                                             "Name":jsonObj.Rice[1].Name,
                                             "Weight":newWeight,
                                             "Price":jsonObj.Rice[1].Price
 
-                                        });
+                                        };
                                         // save()
 
                                     file.writeFileSync('./jsonFiles/inventoryDetailForGrains.json', JSON.stringify(jsonObj), 'utf-8', function (err) {
@@ -196,13 +196,13 @@ function inventory(jsonObj){
                                     }while(!flag)  
                                 //changes remainng
                                 var newWeight=jsonObj.Rice[2].Weight-quantity
-                                    jsonObj.Rice.push(
+                                    jsonObj.Rice[2]=
                                         {
                                             "Name":jsonObj.Rice[2].Name,
                                             "Weight":newWeight,
                                             "Price":jsonObj.Rice[2].Price
 
-                                        });
+                                        };
                                         // save()
 
                                     file.writeFileSync('./jsonFiles/inventoryDetailForGrains.json', JSON.stringify(jsonObj), 'utf-8', function (err) {
@@ -241,7 +241,23 @@ function inventory(jsonObj){
                                         }
                                     
                                     }while(!flag)  
-                                //changes remainng 
+                                //changes remainng
+                                var newWeight=jsonObj.Wheats[0].Weight-quantity
+                                jsonObj.Wheats[0]=
+                                    {
+                                        "Name":jsonObj.Wheats[0].Name,
+                                        "Weight":newWeight,
+                                        "Price":jsonObj.Wheats[0].Price
+
+                                    };
+                                    // save()
+
+                                file.writeFileSync('./jsonFiles/inventoryDetailForGrains.json', JSON.stringify(jsonObj), 'utf-8', function (err) {
+                                    if (err) throw err
+                                })
+                                    
+
+                                console.log('Your bill is, Wheat Name :: '+jsonObj.Wheats[0].Name+'  Quantity :: '+quantity+' Kg is :: '+jsonObj.Wheats[0].Price*quantity+' Rupees')  
                                 break;
                         case 2:console.log(jsonObj.Wheats[1]);
                                     do{
@@ -257,6 +273,22 @@ function inventory(jsonObj){
                                     
                                     }while(!flag)  
                                 //changes remainng 
+                                var newWeight=jsonObj.Wheats[1].Weight-quantity
+                                jsonObj.Wheats[0]=
+                                    {
+                                        "Name":jsonObj.Wheats[1].Name,
+                                        "Weight":newWeight,
+                                        "Price":jsonObj.Wheats[1].Price
+
+                                    };
+                                    // save()
+
+                                file.writeFileSync('./jsonFiles/inventoryDetailForGrains.json', JSON.stringify(jsonObj), 'utf-8', function (err) {
+                                    if (err) throw err
+                                })
+                                    
+
+                                console.log('Your bill is, Wheat Name :: '+jsonObj.Wheats[1].Name+'  Quantity :: '+quantity+' Kg is :: '+jsonObj.Wheats[1].Price*quantity+' Rupees')  
                                 break;
                         case 3:console.log(jsonObj.Wheats[2]);
                                     do{
@@ -271,7 +303,23 @@ function inventory(jsonObj){
                                         }
                                     
                                     }while(!flag)  
-                                //changes remainng 
+                                //changes remainng
+                                var newWeight=jsonObj.Wheats[2].Weight-quantity
+                                jsonObj.Wheats[0]=
+                                    {
+                                        "Name":jsonObj.Wheats[2].Name,
+                                        "Weight":newWeight,
+                                        "Price":jsonObj.Wheats[2].Price
+
+                                    };
+                                    // save()
+
+                                file.writeFileSync('./jsonFiles/inventoryDetailForGrains.json', JSON.stringify(jsonObj), 'utf-8', function (err) {
+                                    if (err) throw err
+                                })
+                                    
+
+                                console.log('Your bill is, Wheat Name :: '+jsonObj.Wheats[2].Name+'  Quantity :: '+quantity+' Kg is :: '+jsonObj.Wheats[2].Price*quantity+' Rupees')   
                                 break;
                     }            
                             
@@ -300,7 +348,23 @@ function inventory(jsonObj){
                                         }
                                     
                                     }while(!flag)  
-                                //changes remainng 
+                                //changes remainng\
+                                var newWeight=jsonObj.Pulses[0].Weight-quantity
+                                jsonObj.Pulses[0]=
+                                    {
+                                        "Name":jsonObj.Pulses[0].Name,
+                                        "Weight":newWeight,
+                                        "Price":jsonObj.Pulses[0].Price
+
+                                    };
+                                    // save()
+
+                                file.writeFileSync('./jsonFiles/inventoryDetailForGrains.json', JSON.stringify(jsonObj), 'utf-8', function (err) {
+                                    if (err) throw err
+                                })
+                                    
+
+                                console.log('Your bill is, Pulse Name :: '+jsonObj.Pulses[0].Name+'  Quantity :: '+quantity+' Kg is :: '+jsonObj.Pulses[0].Price*quantity+' Rupees')   
                                 break;
                         case 2:console.log(jsonObj.Pulses[1]);
                                     do{
@@ -315,7 +379,23 @@ function inventory(jsonObj){
                                         }
                                     
                                     }while(!flag)  
-                                //changes remainng 
+                                //changes remainng
+                                var newWeight=jsonObj.Pulses[1].Weight-quantity
+                                jsonObj.Pulses[1]=
+                                    {
+                                        "Name":jsonObj.Pulses[1].Name,
+                                        "Weight":newWeight,
+                                        "Price":jsonObj.Pulses[1].Price
+
+                                    };
+                                    // save()
+
+                                file.writeFileSync('./jsonFiles/inventoryDetailForGrains.json', JSON.stringify(jsonObj), 'utf-8', function (err) {
+                                    if (err) throw err
+                                })
+                                    
+
+                                console.log('Your bill is, Pulse Name :: '+jsonObj.Pulses[1].Name+'  Quantity :: '+quantity+' Kg is :: '+jsonObj.Pulses[1].Price*quantity+' Rupees')   
                                 break;
                         case 3:console.log(jsonObj.Pulses[2]);
                                     do{
@@ -331,6 +411,22 @@ function inventory(jsonObj){
                                     
                                     }while(!flag)  
                                 //changes remainng 
+                                var newWeight=jsonObj.Pulses[2].Weight-quantity
+                                jsonObj.Pulses[2]=
+                                    {
+                                        "Name":jsonObj.Pulses[2].Name,
+                                        "Weight":newWeight,
+                                        "Price":jsonObj.Pulses[2].Price
+
+                                    };
+                                    // save()
+
+                                file.writeFileSync('./jsonFiles/inventoryDetailForGrains.json', JSON.stringify(jsonObj), 'utf-8', function (err) {
+                                    if (err) throw err
+                                })
+                                    
+
+                                console.log('Your bill is, Pulse Name :: '+jsonObj.Pulses[2].Name+'  Quantity :: '+quantity+' Kg is :: '+jsonObj.Pulses[2].Price*quantity+' Rupees')  
                                 break;
                     }            
                             
@@ -342,13 +438,13 @@ function inventory(jsonObj){
          }
         
 
-         function save() {
-            file.writeFileSync('../oops/jsonFiles/inventoryDetailForGrains.json', JSON.stringify(jsonObj), 'utf-8', function (err) {
-                if (err) throw err
-                console.log('File Saved!!')
-            })
+        //  function save() {
+        //     file.writeFileSync('../oops/jsonFiles/inventoryDetailForGrains.json', JSON.stringify(jsonObj), 'utf-8', function (err) {
+        //         if (err) throw err
+        //         console.log('File Saved!!')
+        //     })
 
-        }
+        // }
 
 
 

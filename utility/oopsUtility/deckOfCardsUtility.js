@@ -125,7 +125,7 @@ class DeckOfCards{
                 console.log('Player '+(i+1));
                 for (let j = 0; j < 9; j++) {
                     var array=[]
-                    array[j]=queue.dequeue()
+                    array[j]=queue.dequeue().trim('')
                     array.sort();
                     console.log(array);
                 

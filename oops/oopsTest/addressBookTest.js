@@ -40,5 +40,18 @@ describe('\t\t\taddressBook Test Cases\n', function(){
         
       });
 
+  const file=require('fs')
+      const Object1=file.readFileSync('addressBookData.json','utf8')
+    
+      const address=JSON.parse(Object1)
+
+      it('should return Right Output ', function(){
+        
+        var result =Obj.createProfile(address);
+        console.log("Result Is :: "+result);
+        
+        assert.equal(result,true)
+        
+      });
 
 });

@@ -103,6 +103,7 @@ class Address {
                 console.log("Your Information As Per Our Record IS:\n \r Name: " + firstName + "\n \r Last Name: " + lastName)
                 console.log("Address: " + street + "," + city + ',' + state + ',' + nationality + ',' + zipCode)
                 console.log("Phone Number is: " + phoneNum)
+                return true
             }
             }catch(error){
                 console.log(error);
